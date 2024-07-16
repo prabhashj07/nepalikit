@@ -1,0 +1,30 @@
+# Ignore the data directory and all its contents
+data/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment directories
+env/
+venv/
+.myenv/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore pytest cache
+.pytest_cache/
+
+# Ignore specific files related to your tokenization and model files
+NepaliKit/tokenization/sentencepiece/model/NepaliKit_sentencepiece.model
+NepaliKit/tokenization/sentencepiece/model/NepaliKit_sentencepiece.vocab
+
+# Ignore IDE specific files (optional)
+.vscode/
+.idea/
+
+# Ignore any other unwanted files or directories
+*.log
+.DS_Store
+
