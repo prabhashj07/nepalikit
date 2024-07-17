@@ -38,12 +38,15 @@ print(tokens)
 ```
 
 ## Preprocessing Example
+
+```python
 from NepaliKit.preprocessing import remove_html_tags, remove_special_characters
 
 text = "<p>नमस्ते, के छ खबर?</p>"
 clean_text = remove_html_tags(text)
 clean_text = remove_special_characters(clean_text)
 print(clean_text)
+```
 
 ## Stopword Example 
 ```python
