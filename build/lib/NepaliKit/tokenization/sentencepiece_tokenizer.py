@@ -18,19 +18,5 @@ class SentencePieceTokenizer:
 
         return sp.encode_as_pieces(text)
 
-    def detokenize(self, tokens):
-        """Detokenizes a list of tokens back into its original text."""
-        model_path = os.path.join(self.this_dir, "model", "NepaliKit_sentencepiece.model")
-        try:
-            sp = spm.SentencePieceProcessor()
-            sp.load(model_path)
-        except FileNotFoundError:
-            raise FileNotFoundError(f"SentencePiece model file '{model_path}' not found.")
-        except Exception as e:
-            raise RuntimeError(f"Error loading SentencePiece model: {str(e)}")
-
-        return sp.decode_pieces(tokens)
-
-
 if __name__ == "__main__":
     pass

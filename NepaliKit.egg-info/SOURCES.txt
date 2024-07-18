@@ -1,0 +1,16 @@
+README.md
+setup.py
+NepaliKit/__init__.py
+NepaliKit/manage_stopwords.py
+NepaliKit/preprocessing.py
+NepaliKit/sentence_operation.py
+NepaliKit/utils.py
+NepaliKit.egg-info/PKG-INFO
+NepaliKit.egg-info/SOURCES.txt
+NepaliKit.egg-info/dependency_links.txt
+NepaliKit.egg-info/entry_points.txt
+NepaliKit.egg-info/requires.txt
+NepaliKit.egg-info/top_level.txt
+NepaliKit/tokenization/__init__.py
+NepaliKit/tokenization/sentencepiece_tokenizer.py
+NepaliKit/tokenization/tokenizer.py

@@ -16,15 +16,14 @@ venv/
 # Ignore pytest cache
 .pytest_cache/
 
-# Ignore specific files related to your tokenization and model files
-NepaliKit/tokenization/sentencepiece/model/NepaliKit_sentencepiece.model
-NepaliKit/tokenization/sentencepiece/model/NepaliKit_sentencepiece.vocab
-
-# Ignore IDE specific files (optional)
+# Ignore IDE specific files 
 .vscode/
 .idea/
 
 # Ignore any other unwanted files or directories
 *.log
 .DS_Store
+
+# Ignore replace_abbreviation.py file
+**/replace_abbreviation.py
 

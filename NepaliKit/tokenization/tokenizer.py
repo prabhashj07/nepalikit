@@ -10,8 +10,6 @@ Date: July 2024
 
 import os
 import string
-import torch
-import sentencepiece as spm
 
 class Tokenizer:
     def __init__(self):
@@ -38,10 +36,42 @@ class Tokenizer:
         """Tokenizes input word into characters."""
         return list(word)
 
+    def tokenize(self, text, level='word', new_punctuation=None):
+        """
+        General tokenization method
+
+        Parameters:
+        - text: str, input text to tokenize 
+        - level: str, level of tokenization ('sentence', 'word', 'character')
+        - new_punctuation: list, additional punctuation to consider for word tokenization
+
+        Returns:
+        list, tokenized text based on specified level of tokenization.
+        """
+        if level == 'sentence':
+            return self.sentence_tokenize(text)
+        elif level == 'word':
+            return self.word_tokenize(text, new_punctuation)
+        elif level == 'characters':
+            return self.character_tokenize(text)
+        else:
+            raise ValueError("Unsupported tokenization level. Choose from 'sentence', 'word', 'character'.")
+
+
+    def sentence_detokenize(self, sentences):
+        """Detokenizes a list of sentences back into the original text."""
+        return u"।".join(sentences)
+
+    def word_detokenize(self, words):
+        """Detokenizes a list of words back into the original sentence."""
+        return " ".join(words)
+
+    def character_detokenize(self, characters):
+        """Detokenizes a list of characters back into the original word."""
+        return "".join(characters)
+
     def __str__(self):
         return "Tokenizer for Nepali language"
 
-# Example usage:
 if __name__ == "__main__":
     tokenizer = Tokenizer()
-
