@@ -37,7 +37,8 @@ tokens = tokenizer.tokenize(text)
 print(tokens)
 ```
 
-### Preprocessing Example 
+## Preprocessing Example
+-----
 
 ```python
 from NepaliKit.preprocessing import remove_html_tags, remove_special_characters
@@ -47,9 +48,8 @@ clean_text = remove_html_tags(text)
 clean_text = remove_special_characters(clean_text)
 print(clean_text)
 ```
-
 ### Stopword Example 
-
+-----
 ```python
 from NepaliKit.manage_stopwords import load_stopwords, add_stopword, remove_stopword
 
