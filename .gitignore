@@ -1,8 +1,12 @@
 # Ignore the data directory and all its contents
 data/
 
-# Ignore Python cache files
+# Ignore 
+*.pyc
 __pycache__/
+*.egg-info/
+build/
+dist/
 *.py[cod]
 
 # Ignore virtual environment directories
@@ -26,13 +30,3 @@ venv/
 
 # Ignore replace_abbreviation.py file
 **/replace_abbreviation.py
-
-# Ignore NepaliKit egg-info directory
-NepaliKit.egg-info/
-
-# Ignore build/lib/NepaliKit directory
-build/
-lib/NepaliKit/
-
-# Ignore dist directory
-dist/
