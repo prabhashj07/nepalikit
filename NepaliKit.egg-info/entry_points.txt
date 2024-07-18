@@ -1,2 +1,0 @@
-[console_scripts]
-nepalikit-cli = NepaliKit.__main__:main
