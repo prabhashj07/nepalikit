@@ -17,7 +17,7 @@ from NepaliKit.sentence_operation import *
 __all__ = [
     'TextProcessor', 'urls_emails',
     'remove_stopwords', 'Tokenizer', 'SentencePieceTokenizer',
-    'split_text', 'merge_text', 'count_word', 'count_words_in_paragraph',
+    'NepaliTextProcessor'
     'extract_sentences', 'load_abbreviation', 'normalize_text', 'AbbreviationReplacer', 'segment_sentences',
     'sentence_stats', 'load_stopwords', 'remove_stopwords_from_text'
 ]

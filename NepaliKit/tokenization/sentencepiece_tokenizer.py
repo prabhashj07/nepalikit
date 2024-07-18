@@ -4,10 +4,16 @@ import sentencepiece as spm
 class SentencePieceTokenizer:
     def __init__(self):
         self.this_dir = os.path.dirname(os.path.abspath(__file__))
+        self.model_path = os.path.join(self.this_dir, "sentencepiece", "model", "NepaliKit_sentencepiece.model")
+        print(f"Model path: {self.model_path}")
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(f"Model file not found: {self.model_path}")
+
+        print("Model found and path is correct.")
 
     def tokenize(self, text):
         """Tokenizes text using SentencePiece model loaded from file."""
-        model_path = os.path.join(self.this_dir, "model", "NepaliKit_sentencepiece.model")
+        model_path = os.path.join(self.this_dir, "sentencepiece", "model", "NepaliKit_sentencepiece.model")
         try:
             sp = spm.SentencePieceProcessor()
             sp.load(model_path)
@@ -16,11 +22,10 @@ class SentencePieceTokenizer:
         except Exception as e:
             raise RuntimeError(f"Error loading SentencePiece model: {str(e)}")
 
-        return sp.encode_as_pieces(text)
+        return sp.EncodeAsPieces(text)
 
     def detokenize(self, tokens):
-        """Detokenizes a list of tokens back into its original text."""
-        model_path = os.path.join(self.this_dir, "model", "NepaliKit_sentencepiece.model")
+        model_path = os.path.join(self.this_dir, "sentencepiece", "model", "NepaliKit_sentencepiece.model")
         try:
             sp = spm.SentencePieceProcessor()
             sp.load(model_path)
@@ -29,8 +34,7 @@ class SentencePieceTokenizer:
         except Exception as e:
             raise RuntimeError(f"Error loading SentencePiece model: {str(e)}")
 
-        return sp.decode_pieces(tokens)
-
+        return sp.DecodePieces(tokens)
 
 if __name__ == "__main__":
-    pass
+    tokenizer = SentencePieceTokenizer();
