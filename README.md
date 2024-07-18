@@ -29,7 +29,7 @@ Usage
 ### Tokenization Example
 
 ```python
-from NepaliKit.tokenization import SentencePieceTokenizer
+from NepaliKit.tokenization.sentencepiece_tokenizer import SentencePieceTokenizer
 
 text = "नमस्ते, के छ खबर?"
 tokenizer = SentencePieceTokenizer()
@@ -41,11 +41,12 @@ print(tokens)
 -----
 
 ```python
-from NepaliKit.preprocessing import remove_html_tags, remove_special_characters
+from NepaliKit.preprocessing.TextProcessor import TextProcessor
 
 text = "<p>नमस्ते, के छ खबर?</p>"
-clean_text = remove_html_tags(text)
-clean_text = remove_special_characters(clean_text)
+processor = TextProcessor()
+clean_text = processor.remove_html_tags(text)
+clean_text = processor.remove_special_characters(clean_text)
 print(clean_text)
 ```
 ### Stopword Example 
