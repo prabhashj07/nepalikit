@@ -1,5 +1,5 @@
 import pytest
-from nepalikit.utils.utils import NepaliTextProcessor
+from nepalikit.utils import NepaliTextProcessor
 
 @pytest.fixture
 def text_processor():
