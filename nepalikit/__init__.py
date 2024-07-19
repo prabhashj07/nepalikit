@@ -8,11 +8,11 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-from NepaliKit.manage_stopwords import *
-from NepaliKit.preprocessing import *
-from NepaliKit.tokenization import *
-from NepaliKit.utils import *
-from NepaliKit.sentence_operation import *
+from nepalikit.manage_stopwords import *
+from nepalikit.preprocessing import *
+from nepalikit.tokenization import *
+from nepalikit.utils import *
+from nepalikit.sentence_operation import *
 
 __all__ = [
     'TextProcessor', 'urls_emails',

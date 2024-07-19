@@ -8,7 +8,7 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-from .utils import NepaliTextProcessor
+from nepalikit.utils.utils import NepaliTextProcessor
 
 __all__ = [
     'NepaliTextProcessor',

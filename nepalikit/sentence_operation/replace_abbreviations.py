@@ -1,6 +1,6 @@
 import os
 import regex as re
-from NepaliKit.sentence_operation.load_abbreviation import load_abbreviations
+from nepalikit.sentence_operation.load_abbreviation import load_abbreviations
 
 class AbbreviationReplacer:
     def __init__(self):

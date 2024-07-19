@@ -9,8 +9,8 @@ Date: July 2024
 """
 
 from typing import Dict
-from NepaliKit.tokenization.tokenizer import Tokenizer
-from NepaliKit.manage_stopwords import load_stopwords
+from nepalikit.tokenization.tokenizer import Tokenizer
+from nepalikit.manage_stopwords.manage_stopwords import load_stopwords
 
 class SentenceAnalyzer:
     def __init__(self):

@@ -8,8 +8,8 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-from .load_abbreviation import load_abbreviations
-from .extract_sentences import extract_sentences
+from nepalikit.sentence_operation.load_abbreviation import load_abbreviations
+from nepalikit.sentence_operation.extract_sentences import extract_sentences
 
 def segment_sentences(text: str) -> list:
     """

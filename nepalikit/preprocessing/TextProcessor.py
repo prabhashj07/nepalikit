@@ -8,7 +8,7 @@ Date: July 2024
 
 import re
 from collections import Counter
-from NepaliKit.preprocessing.urls_emails import *
+from nepalikit.preprocessing.urls_emails import *
 
 class TextProcessor:
     def __init__(self, stopwords=None):

@@ -9,7 +9,7 @@ Date: July 2024
 """
 
 import re
-from NepaliKit.preprocessing.TextProcessor import TextProcessor
+from nepalikit.preprocessing.TextProcessor import TextProcessor
 
 def extract_sentences(text: str) -> list:
     """Extract sentences splits a given Nepali text into sentences 

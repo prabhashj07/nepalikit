@@ -9,7 +9,8 @@ Date: July 2024
 """
 
 from .tokenizer import Tokenizer
-from .sentencepiece_tokenizer import SentencePieceTokenizer
+# from .sentencepiece_tokenizer import SentencePieceTokenizer
+from nepalikit.tokenization.sentencepiece_tokenizer import SentencePieceTokenizer
 
 __all__ = [
     'Tokenizer',
