@@ -1,6 +1,6 @@
 import os
 import pytest
-from nepalikit.tokenization.sentencepiece_tokenizer import SentencePieceTokenizer
+from nepalikit.tokenization import SentencePieceTokenizer
 import sentencepiece as spm
 
 @pytest.fixture
