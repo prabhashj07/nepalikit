@@ -8,7 +8,7 @@ Installation
 
 You can install NepaliKit using pip:
 
-    pip install NepaliKit
+    pip install nepalikit
 
 Features
 --------
@@ -29,7 +29,7 @@ Usage
 ### Tokenization Example
 
 ```python
-from NepaliKit.tokenization.sentencepiece_tokenizer import SentencePieceTokenizer
+from nepalikit.tokenization import SentencePieceTokenizer
 
 text = "नमस्ते, के छ खबर?"
 tokenizer = SentencePieceTokenizer()
@@ -41,7 +41,7 @@ print(tokens)
 -----
 
 ```python
-from NepaliKit.preprocessing.TextProcessor import TextProcessor
+from nepalikit.preprocessing import TextProcessor
 
 text = "<p>नमस्ते, के छ खबर?</p>"
 processor = TextProcessor()
@@ -52,7 +52,7 @@ print(clean_text)
 ### Stopword Example 
 -----
 ```python
-from NepaliKit.manage_stopwords import load_stopwords, add_stopword, remove_stopword
+from nepalikit.manage_stopwords import load_stopwords, add_stopword, remove_stopword
 
 stopwords = load_stopwords('/path/to/stopword/directory')
 add_stopword('नयाँ_स्टापवर्ड')
