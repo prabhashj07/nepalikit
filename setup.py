@@ -4,16 +4,17 @@ with open('README.md', 'r', encoding='utf-8') as fh:
     long_description = fh.read()
 
 setup(
-    name='NepaliKit',
+    name='nepalikit',
     version='1.0.1',
     packages=find_packages(),
     install_requires=[
         'torch',
         'sentencepiece'
+        'regex'
     ],
     entry_points={
         'console_scripts': [
-            'nepalikit-cli = NepaliKit.__main__:main',
+            'nepalikit-cli = nepalikit.__main__:main',
         ],
     },
     author='Prabhash Kumar Jha',
@@ -21,7 +22,7 @@ setup(
     description='A Nepali language processing library',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/prabhashj07/NepaliKit.git',
+    url='https://github.com/prabhashj07/nepalikit.git',
     license='MIT',
     classifiers=[
         'Programming Language :: Python :: 3',
@@ -36,8 +37,8 @@ setup(
     python_requires='>=3.7',
     include_package_data=True,
     project_urls={
-        'Bug Reports': 'https://github.com/prabhashj07/NepaliKit/issues',
-        'Source': 'https://github.com/prabhashj07/NepaliKit/',
+        'Bug Reports': 'https://github.com/prabhashj07/nepalikit/issues',
+        'Source': 'https://github.com/prabhashj07/nepalikit/',
         'Documentation': 'https://nepalikit.readthedocs.io/',
     },
 )
