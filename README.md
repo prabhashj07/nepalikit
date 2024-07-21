@@ -10,6 +10,12 @@ You can install NepaliKit using pip:
 
     pip install nepalikit
 
+Alternatively, you can clone the repository and install it manually:
+
+    git clone https://github.com/prabhashj07/nepalikit.git
+    cd nepalikit
+    pip install .
+
 Features
 --------
 
