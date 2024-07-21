@@ -52,10 +52,9 @@ print(clean_text)
 ### Stopword Example 
 -----
 ```python
-from nepalikit.manage_stopwords import load_stopwords, add_stopword, remove_stopword
+from nepalikit.manage_stopwords import load_stopwords, remove_stopword
 
 stopwords = load_stopwords('/path/to/stopword/directory')
-add_stopword('नयाँ_स्टापवर्ड')
 remove_stopword('कुनै_स्टापवर्ड')
 ```
 
