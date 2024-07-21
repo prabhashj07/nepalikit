@@ -8,8 +8,8 @@ setup(
     version='1.0.1',
     packages=find_packages(),
     install_requires=[
-        'torch',
-        'sentencepiece'
+        'torch>=2.1.2',
+        'sentencepiece==0.1.95'
         'regex'
     ],
     entry_points={
