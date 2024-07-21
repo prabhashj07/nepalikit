@@ -1,6 +1,9 @@
+# test/test_sentencepiece_tokenizer.py
+
 import os
 import pytest
 from nepalikit.tokenization import SentencePieceTokenizer
+from nepalikit.sentence_operation import TextNormalizer
 import sentencepiece as spm
 
 @pytest.fixture
@@ -11,18 +14,16 @@ def test_tokenizer_initialization(tokenizer):
     assert isinstance(tokenizer, SentencePieceTokenizer)
 
 def test_tokenize(tokenizer):
-    text = "Hello, world!"
+    text = "तपाईंलाई कस्तो छ म ठिक छु"
     tokens = tokenizer.tokenize(text)
     assert isinstance(tokens, list)
-    # Update this with the actual expected token IDs
-    # Example: assert tokens == [682, 151, 48, 583, 111]
+    # Example: assert tokens == [1, 2, 3, 4, 5]
 
 def test_detokenize(tokenizer):
-    tokens = [682, 151, 48, 583, 111]
+    tokens = [1, 2, 3, 4, 5]
     text = tokenizer.detokenize(tokens)
     assert isinstance(text, str)
-    # Update this with the actual expected string
-    # Example: assert text == "Hello, world!"
+    # Example: assert text == "तपाईंलाई कस्तो छ म ठिक छु"
 
 def test_tokenize_empty_string(tokenizer):
     tokens = tokenizer.tokenize("")
@@ -33,7 +34,7 @@ def test_detokenize_empty_list(tokenizer):
     assert text == ""
 
 def test_roundtrip(tokenizer):
-    text = "Hello, world!"
+    text = "तपाईंलाई कस्तो छ म ठिक छु"
     tokens = tokenizer.tokenize(text)
     recovered_text = tokenizer.detokenize(tokens)
     assert recovered_text == text
@@ -44,3 +45,8 @@ def test_model_file_not_found():
         sp = spm.SentencePieceProcessor()
         sp.Load(non_existent_model)
 
+def test_text_normalizer():
+    text = "तपाईंलाई कस्तो छ म ठिक छु"
+    normalizer = TextNormalizer(text)
+    normalized_text = normalizer.normalize()
+    assert isinstance(normalized_text, str)

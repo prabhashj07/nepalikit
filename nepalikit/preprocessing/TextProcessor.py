@@ -1,4 +1,6 @@
 """
+
+
 Preprocessing functions for text processing in NepaliKit package.
 
 Author: Prabhash Kumar Jha
@@ -13,12 +15,13 @@ from nepalikit.preprocessing.urls_emails import *
 class TextProcessor:
     def __init__(self, stopwords=None):
         self.stopwords = stopwords or []
+        self.urls_emails_processor = urls_emails()
 
     def remove_html_tags(self, text):
         return re.sub(r'<.*?>', '', text)
 
     def remove_special_characters(self, text):
-        return re.sub(r'[^\u0900-\u097F\s]', '', text)
+        return re.sub(r'[^\u0900-\u097F\s]', '', text).replace('।', '')
 
     def remove_extra_whitespace(self, text):
         return re.sub(r'\s+', ' ', text).strip()
@@ -34,8 +37,7 @@ class TextProcessor:
     def preprocess_text(self, text):
         text = self.remove_html_tags(text)
         text = self.remove_special_characters(text)
-        processor = urls_emails()
-        text = self.processor.remove_urls_emails(text)
+        text = self.urls_emails_processor.remove_urls_emails(text)
         text = self.remove_extra_whitespace(text)
         text = self.remove_stopwords(text)
         text = self.normalize_text(text)

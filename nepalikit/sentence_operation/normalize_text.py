@@ -10,7 +10,11 @@ Date: July 2024
 
 import unicodedata
 
-def normalize_text(text: str) -> str:
-    """Normalize Unicode characters in Nepali text."""
-    return unicodedata.normalize('NFKC', text)
+class TextNormalizer:
+    def __init__(self, text: str):
+        self.text = text
+
+    def normalize(self) -> str:
+        """Normalize Unicode characters in Nepali text."""
+        return unicodedata.normalize('NFKC', self.text)
 
