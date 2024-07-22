@@ -48,10 +48,3 @@ class extract_sentences:
         sentences = [sent for sent in sentences if sent.strip()]
         
         return sentences
-
-
-# Example usage
-text = "तपाईंलाई कस्तो छ? म ठिक छु।"
-extractor = extract_sentences(text)
-sentences = extractor.extract_sentences()
-print(sentences)
