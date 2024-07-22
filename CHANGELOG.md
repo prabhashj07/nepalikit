@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 - Initial release of `nepalikit` with tokenization and detokenization features.
 - Added new model to the project folder.
 - Created a `tests` directory with test files to ensure code quality and functionality.
-- Added `replace_abbreviation.py` for sentence extraction.
+- Added `replace_abbreviation.py` for replacing abbreviation.
 - Added `sentence_stats.py` for showing statistics of sentences.
 
 ### Changed
