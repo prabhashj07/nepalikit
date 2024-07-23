@@ -1,7 +1,7 @@
 NepaliKit
 =========
 
-[![Current Release Version](https://img.shields.io/github/release/explosion/nepalikit.svg?style=flat-square&logo=github)](https://github.com/explosion/nepalikit/releases)
+[![Current Release Version](https://img.shields.io/github/release/prabhashj07/nepalikit.svg?style=flat-square&logo=github)](https://github.com/prabhashj07/nepalikit/releases)
 [![pypi Version](https://img.shields.io/pypi/v/nepalikit.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/NepaliKit/)
 [![PyPi downloads](https://static.pepy.tech/personalized-badge/NepaliKit?period=total&units=international_system&left_color=grey&right_color=orange&left_text=pip%20downloads)](https://pypi.org/project/NepaliKit/)
 
