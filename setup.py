@@ -12,6 +12,10 @@ setup(
         'sentencepiece==0.2.0',
         'regex'
     ],
+    include_package_data=True,
+    package_data={
+        'nepalikit': ['tokenization/sentencepiece/model/NepaliKit_sentencepiece.model'],
+    },
     entry_points={
         'console_scripts': [
             'nepalikit-cli = nepalikit.__main__:main',
@@ -20,7 +24,7 @@ setup(
     author='Prabhash Kumar Jha',
     author_email='prabhashj07@gmail.com',
     description='A Nepali language processing library',
-    long_description=long_description,
+    long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/prabhashj07/nepalikit.git',
     license='MIT',
@@ -35,9 +39,9 @@ setup(
         'Topic :: Text Processing :: Linguistic',
     ],
     python_requires='>=3.7',
-    include_package_data=True,
     project_urls={
         'Bug Reports': 'https://github.com/prabhashj07/nepalikit/issues',
         'Source': 'https://github.com/prabhashj07/nepalikit/',
 },
 )
+

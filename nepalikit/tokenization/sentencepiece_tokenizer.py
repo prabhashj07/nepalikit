@@ -12,7 +12,15 @@ class SentencePieceTokenizer:
         print("Model found and path is correct.")
 
     def tokenize(self, text):
-        """Tokenizes text using SentencePiece model loaded from file."""
+        """
+        Tokenizes text using SentencePiece model loaded from file.
+
+        Parameters:
+        - text: str, a string to be tokenized.
+
+        Returns:
+        - a list of str: tokenized.
+        """
         model_path = os.path.join(self.this_dir, "sentencepiece", "model", "NepaliKit_sentencepiece.model")
         try:
             sp = spm.SentencePieceProcessor()
@@ -25,6 +33,15 @@ class SentencePieceTokenizer:
         return sp.EncodeAsPieces(text)
 
     def detokenize(self, tokens):
+        """
+        Detokenize text using SentencePiece model loaded from file.
+
+        Parameters:
+        - a list of str: tokenized string to be converted into original form. 
+
+        Returns:
+        - original form: text, string
+        """
         model_path = os.path.join(self.this_dir, "sentencepiece", "model", "NepaliKit_sentencepiece.model")
         try:
             sp = spm.SentencePieceProcessor()
