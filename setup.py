@@ -8,8 +8,8 @@ setup(
     version='1.0.1',
     packages=find_packages(),
     install_requires=[
-        'torch>=2.1.2',
-        'sentencepiece==0.1.95'
+        'torch>=2.3.1',
+        'sentencepiece==0.2.0',
         'regex'
     ],
     entry_points={
@@ -39,6 +39,5 @@ setup(
     project_urls={
         'Bug Reports': 'https://github.com/prabhashj07/nepalikit/issues',
         'Source': 'https://github.com/prabhashj07/nepalikit/',
-        'Documentation': 'https://nepalikit.readthedocs.io/',
-    },
+},
 )
