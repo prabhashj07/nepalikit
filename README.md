@@ -70,7 +70,7 @@ remove_stopword('कुनै_स्टापवर्ड')
 
 License
 -----
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 
 
 Author
 -----
