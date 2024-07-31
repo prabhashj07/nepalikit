@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## Version 1.0.2
 
 ### Added
 - Initial release of `nepalikit` with tokenization and detokenization features.
