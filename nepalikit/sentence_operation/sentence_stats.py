@@ -10,12 +10,12 @@ Date: July 2024
 
 from typing import Dict
 from nepalikit.tokenization.tokenizer import Tokenizer
-from nepalikit.manage_stopwords.manage_stopwords import load_stopwords
+
 
 class SentenceAnalyzer:
     def __init__(self):
         self.tokenizer = Tokenizer()
-        self.stopwords = load_stopwords()
+        self.stopwords = []
         
     def sentence_stats(self, sentence: str) -> Dict[str, int]:
         """Compute statistics for a given sentence."""

@@ -93,9 +93,11 @@ class NepaliTextProcessor:
         int: the total number of words in the paragraph.
         """
         total_words = 0
-        sentences = paragraph.split('.')
+        sentences = paragraph.split(u'।')
         for sentence in sentences:
-            total_words += self.count_words(sentence)
+            sentence = sentence.strip()
+            if sentence:
+                total_words += self.count_words(sentence)
         return total_words
 
 

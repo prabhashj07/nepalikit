@@ -1,9 +1,5 @@
 import os
 
-# Use a relative path from the script location
-script_dir = os.path.dirname(os.path.abspath(__file__))
-data_dir = os.path.join(script_dir, '..', '..', 'data')
-abbreviation_file = os.path.join(data_dir, 'abbreviation.txt')
 
 def load_abbreviations(folder_path):
     """
@@ -16,28 +12,19 @@ def load_abbreviations(folder_path):
         dict: A dictionary mapping abbreviations to their expanded forms.
     """
     abbreviations = {}
+    if not os.path.isdir(folder_path):
+        return abbreviations
     try:
         file_path = os.path.join(folder_path, 'abbreviation.txt')
         with open(file_path, "r", encoding="utf-8") as file:
             for line in file:
                 if ':' in line:
-                    key, value = line.strip().split(':')
+                    key, value = line.strip().split(':', 1)
                     abbreviations[key.strip()] = value.strip()
         return abbreviations
 
     except FileNotFoundError:
-        print(f"Error: Abbreviation file not found in '{folder_path}'.")
         return {}
     
-    except Exception as e:
-        print(f"Error loading abbreviations: {e}")
+    except Exception:
         return {}
-
-"""
-# Call the function
-abbreviations = load_abbreviations(abbreviation_file)
-
-# Check if any abbreviations were loaded
-if not abbreviations:
-    print("No abbreviations were loaded. Check the file path and file content.")
-"""

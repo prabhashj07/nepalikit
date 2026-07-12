@@ -2,7 +2,7 @@
 
 import os
 import pytest
-from nepalikit.tokenization import SentencePieceTokenizer
+from nepalikit.tokenization import SentencePieceTokenizer, Tokenizer
 from nepalikit.sentence_operation import TextNormalizer
 import sentencepiece as spm
 
@@ -50,3 +50,30 @@ def test_text_normalizer():
     normalizer = TextNormalizer(text)
     normalized_text = normalizer.normalize()
     assert isinstance(normalized_text, str)
+
+def test_no_debug_print(capsys):
+    SentencePieceTokenizer()
+    captured = capsys.readouterr()
+    assert 'Loaded model from' not in captured.out
+
+def test_model_loaded_once(tokenizer):
+    """Model should be cached, not reloaded from disk each call."""
+    t1 = tokenizer.tokenize("नेपाल")
+    t2 = tokenizer.tokenize("नेपाल")
+    assert t1 == t2
+
+
+def test_tokenizer_character_level():
+    t = Tokenizer()
+    result = t.tokenize("नेपाल", level='character')
+    assert result == list("नेपाल")
+
+def test_tokenizer_characters_level():
+    t = Tokenizer()
+    result = t.tokenize("नेपाल", level='characters')
+    assert result == list("नेपाल")
+
+def test_tokenizer_invalid_level():
+    t = Tokenizer()
+    with pytest.raises(ValueError):
+        t.tokenize("नेपाल", level='phoneme')

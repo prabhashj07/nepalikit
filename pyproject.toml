@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=64.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nepalikit"
+version = "1.1.0"
+description = "A Nepali language processing library"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    { name = "Prabhash Kumar Jha", email = "prabhashj07@gmail.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Natural Language :: Nepali",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "sentencepiece==0.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/prabhashj07/nepalikit"
+Repository = "https://github.com/prabhashj07/nepalikit"
+"Bug Reports" = "https://github.com/prabhashj07/nepalikit/issues"
+
+[tool.setuptools.packages.find]
+include = ["nepalikit*"]
+
+[tool.setuptools.package-data]
+nepalikit = [
+    "tokenization/sentencepiece/model/NepaliKit_sentencepiece.model",
+    "tokenization/sentencepiece/model/NepaliKit_sentencepiece.vocab",
+    "data/stopwords.txt",
+    "data/stemmer_rules.json",
+    "data/pos_dictionary.json",
+    "data/spelling_dict.txt",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]

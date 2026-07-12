@@ -9,7 +9,7 @@ Date: July 2024
 """
 
 from nepalikit.sentence_operation.load_abbreviation import load_abbreviations
-from nepalikit.sentence_operation.extract_sentences import extract_sentences
+from nepalikit.sentence_operation.extract_sentences import extract_sentences as ExtractSentences
 
 def segment_sentences(text: str) -> list:
     """
@@ -17,13 +17,14 @@ def segment_sentences(text: str) -> list:
     it by joining sentences split due to load_abbreviations, ensuring cohesive 
     and accurate sentence segmentation for further processing and analysis.
     """
-    abbreviations = load_abbreviations()
-    sentences = extract_sentences(text)
+    abbreviations = {}
+    extractor = ExtractSentences(text)
+    sentences = extractor.extract_sentences()
     
     # Join sentences split on abbreviations
     final_sentences = []
     for i, sent in enumerate(sentences):
-        if i > 0 and sent.split()[0] in abbreviations:
+        if i > 0 and sent.split() and sent.split()[0] in abbreviations:
             final_sentences[-1] += ' ' + sent
         else:
             final_sentences.append(sent)

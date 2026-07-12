@@ -78,7 +78,7 @@ class Tokenizer:
             return self.sentence_tokenize(text)
         elif level == 'word':
             return self.word_tokenize(text, new_punctuation)
-        elif level == 'characters':
+        elif level in ('character', 'characters'):
             return self.character_tokenize(text)
         else:
             raise ValueError("Unsupported tokenization level. Choose from 'sentence', 'word', 'character'.")

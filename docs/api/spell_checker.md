@@ -1,0 +1,93 @@
+# Spell Checker API
+
+## Overview
+
+Dictionary-based spell checking with Levenshtein edit distance for correction suggestions.
+
+## Functions
+
+### `check_spelling(word)`
+
+Check if a word is spelled correctly.
+
+```python
+from nepalikit.spell_checker import check_spelling
+
+check_spelling("नेपाल")   # True
+check_spelling("नेपालक")  # False
+```
+
+### `suggest_corrections(word, max_distance=2)`
+
+Get correction suggestions for a misspelled word.
+
+```python
+from nepalikit.spell_checker import suggest_corrections
+
+suggest_corrections("नेपालक")  # ["नेपालको", "नेपालका"]
+suggest_corrections("राम")     # ["राम"]
+```
+
+## Classes
+
+### `NepaliSpellChecker`
+
+Advanced spell checker with custom dictionary support.
+
+```python
+from nepalikit.spell_checker import NepaliSpellChecker
+
+checker = NepaliSpellChecker()
+
+# Check word
+checker.check("नेपाल")  # True
+
+# Get suggestions
+checker.suggest("नेपालक")  # ["नेपालको", "नेपालका"]
+
+# Add word to dictionary
+checker.add_word("नेपाली")
+
+# Correct text
+corrected = checker.correct("मेरो नेपालक नाम छ")
+print(corrected)
+```
+
+## Methods
+
+### `NepaliSpellChecker.check(word)`
+
+Check if a word is in the dictionary.
+
+**Parameters:**
+- `word` (str): Word to check
+
+**Returns:** True if correct
+
+### `NepaliSpellChecker.suggest(word, max_distance=2, max_suggestions=5)`
+
+Suggest corrections for a misspelled word.
+
+**Parameters:**
+- `word` (str): Misspelled word
+- `max_distance` (int): Maximum edit distance
+- `max_suggestions` (int): Maximum suggestions to return
+
+**Returns:** List of suggestions
+
+### `NepaliSpellChecker.correct(text, max_distance=1)`
+
+Correct misspellings in text.
+
+**Parameters:**
+- `text` (str): Input text
+- `max_distance` (int): Maximum edit distance for corrections
+
+**Returns:** Corrected text
+
+### `NepaliSpellChecker.add_word(word)`
+
+Add a word to the dictionary.
+
+**Parameters:**
+- `word` (str): Word to add

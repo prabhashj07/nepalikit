@@ -36,8 +36,8 @@ class TextProcessor:
 
     def preprocess_text(self, text):
         text = self.remove_html_tags(text)
-        text = self.remove_special_characters(text)
         text = self.urls_emails_processor.remove_urls_emails(text)
+        text = self.remove_special_characters(text)
         text = self.remove_extra_whitespace(text)
         text = self.remove_stopwords(text)
         text = self.normalize_text(text)

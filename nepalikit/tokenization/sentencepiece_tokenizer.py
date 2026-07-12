@@ -1,15 +1,18 @@
 import os
+from importlib import resources
 import sentencepiece as spm
+
 
 class SentencePieceTokenizer:
     def __init__(self):
-        self.this_dir = os.path.dirname(os.path.abspath(__file__))
-        self.model_path = os.path.join(self.this_dir, "sentencepiece", "model", "NepaliKit_sentencepiece.model")
-        print(f"Model path: {self.model_path}")
+        pkg = resources.files("nepalikit")
+        self.model_path = str(
+            pkg.joinpath("tokenization", "sentencepiece", "model", "NepaliKit_sentencepiece.model")
+        )
         if not os.path.exists(self.model_path):
             raise FileNotFoundError(f"Model file not found: {self.model_path}")
-
-        print("Model found and path is correct.")
+        self._sp = spm.SentencePieceProcessor()
+        self._sp.load(self.model_path)
 
     def tokenize(self, text):
         """
@@ -21,16 +24,7 @@ class SentencePieceTokenizer:
         Returns:
         - a list of str: tokenized.
         """
-        model_path = os.path.join(self.this_dir, "sentencepiece", "model", "NepaliKit_sentencepiece.model")
-        try:
-            sp = spm.SentencePieceProcessor()
-            sp.load(model_path)
-        except FileNotFoundError:
-            raise FileNotFoundError(f"SentencePiece model file '{model_path}' not found.")
-        except Exception as e:
-            raise RuntimeError(f"Error loading SentencePiece model: {str(e)}")
-
-        return sp.EncodeAsPieces(text)
+        return self._sp.EncodeAsPieces(text)
 
     def detokenize(self, tokens):
         """
@@ -42,16 +36,7 @@ class SentencePieceTokenizer:
         Returns:
         - original form: text, string
         """
-        model_path = os.path.join(self.this_dir, "sentencepiece", "model", "NepaliKit_sentencepiece.model")
-        try:
-            sp = spm.SentencePieceProcessor()
-            sp.load(model_path)
-        except FileNotFoundError:
-            raise FileNotFoundError(f"SentencePiece model file '{model_path}' not found.")
-        except Exception as e:
-            raise RuntimeError(f"Error loading SentencePiece model: {str(e)}")
-
-        return sp.DecodePieces(tokens)
+        return self._sp.DecodePieces(tokens)
 
 if __name__ == "__main__":
     tokenizer = SentencePieceTokenizer();

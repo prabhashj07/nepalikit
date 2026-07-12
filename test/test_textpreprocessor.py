@@ -39,3 +39,21 @@ def test_get_word_frequency(processor):
     tokens = ['नेपाल', 'एक', 'सुन्दर', 'देश', 'नेपाल', 'हो']
     expected = {'नेपाल': 2, 'एक': 1, 'सुन्दर': 1, 'देश': 1, 'हो': 1}
     assert dict(processor.get_word_frequency(tokens)) == expected
+
+def test_preprocess_text_removes_urls_before_special_chars():
+    p = TextProcessor(stopwords=[])
+    text = "नेपाल www.example.com छ।"
+    result = p.preprocess_text(text)
+    assert 'www.example.com' not in result
+    assert 'नेपाल' in result
+
+def test_preprocess_text_handles_html_with_urls():
+    p = TextProcessor(stopwords=[])
+    text = "<b>नेपाल</b> https://example.com छ।"
+    result = p.preprocess_text(text)
+    assert '<b>' not in result
+    assert 'https://example.com' not in result
+
+def test_preprocess_text_empty_string():
+    p = TextProcessor(stopwords=[])
+    assert p.preprocess_text("") == ""

@@ -23,5 +23,14 @@ def test_count_words(text_processor):
 def test_count_words_in_paragraph(text_processor):
     paragraph = 'नमस्कार साथी। तपाईलाई कस्तो छ?'
     total_words = text_processor.count_words_in_paragraph(paragraph)
-    assert total_words == 5  
+    assert total_words == 5
+
+def test_count_words_in_paragraph_empty_string(text_processor):
+    assert text_processor.count_words_in_paragraph("") == 0
+
+def test_count_words_in_paragraph_only_punctuation(text_processor):
+    assert text_processor.count_words_in_paragraph("।।।") == 0
+
+def test_count_words_in_paragraph_no_delimiter(text_processor):
+    assert text_processor.count_words_in_paragraph("नेपाल") == 1
 

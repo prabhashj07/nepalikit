@@ -25,13 +25,20 @@ Features
 
 NepaliKit provides the following features:
 
-- **Tokenization**: Tokenize Nepali text using the SentencePiece tokenizer.
+- **Tokenization**: Tokenize Nepali text using rule-based and SentencePiece tokenizers.
 - **Preprocessing**: Clean and preprocess Nepali text data, including removing HTML tags, special characters, and other cleaning tasks.
-- **Stopword Management**: Load and remove stopwords from Nepali text.
+- **Stopword Management**: Load and remove stopwords from Nepali text. 340+ curated Nepali stopwords with dynamic add/remove support.
 - **Sentence Operations**: Segment Nepali text into sentences based on punctuation marks.
 - **SentencePiece Model Training**: Train custom SentencePiece models for Nepali text data.
 - **Utility Functions**: Various utility functions for text processing and manipulation.
 - **Integration with PyTorch**: Utilities for integrating with PyTorch for machine learning tasks.
+- **Stemming**: Rule-based suffix stripping for Nepali words. Strips case markers, possessives, plurals, and verb endings.
+- **Normalization**: Unicode NFC normalization, ZWNJ/ZWJ stripping, control character cleanup, and whitespace normalization.
+- **Script Detection**: Detect whether text is Devanagari, Latin, mixed, or other.
+- **Number Extraction**: Parse and convert Nepali numeric expressions (Devanagari digits and number words) to integers.
+- **POS Tagging**: Dictionary-based part-of-speech tagger with 11 grammatical categories.
+- **Spell Checking**: Dictionary-based spell checking with Levenshtein edit distance for correction suggestions.
+- **Transliteration**: Character-level Roman to Devanagari and Devanagari to Roman conversion.
 
 Usage
 -----

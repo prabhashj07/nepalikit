@@ -1,12 +1,11 @@
 import os
-import regex as re
+import re
 from nepalikit.sentence_operation.load_abbreviation import load_abbreviations
+
 
 class AbbreviationReplacer:
     def __init__(self):
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        data_dir = os.path.abspath(os.path.join(current_dir, '..', '..', 'data'))  # Adjusted path to data directory
-        self.abbreviations = load_abbreviations(data_dir)
+        self.abbreviations = {}
         self.pattern = self._generate_pattern()
 
     def _generate_pattern(self):
@@ -20,7 +19,7 @@ class AbbreviationReplacer:
             elif clean_abbr.count('.') == 0:  # x.
                 pattern = r'\b{}\b'.format(re.escape(abbr))
             abbr_patterns.append(pattern)
-        return '|'.join(abbr_patterns)
+        return '|'.join(abbr_patterns) if abbr_patterns else None
 
     def _replace_match(self, match):
         matched_text = match.group(0)
@@ -30,6 +29,8 @@ class AbbreviationReplacer:
         return matched_text
 
     def replace_abbreviations(self, text: str) -> str:
+        if not self.pattern:
+            return text
         replaced_text = re.sub(self.pattern, self._replace_match, text, flags=re.UNICODE | re.IGNORECASE)
         return replaced_text
 
