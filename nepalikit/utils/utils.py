@@ -8,6 +8,7 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
+
 class NepaliTextProcessor:
     """
     A class for processing Nepali text, including merging and splitting text,
@@ -33,7 +34,8 @@ class NepaliTextProcessor:
     - Counts the total number of words in a paragraph, where the paragraph is split into sentences.
 
     """
-    def __init__(self, delimiter=' '):
+
+    def __init__(self, delimiter=" "):
         """
         Initialize the NepaliTextProcessor with a specified delimiter.
 
@@ -59,7 +61,7 @@ class NepaliTextProcessor:
         Split text by a delimiter.
 
         Parameters:
-        text: str, the text string to be split. 
+        text: str, the text string to be split.
 
         Returns:
         list of str, a list of tokens obtained by splitting the text using the delimiter.
@@ -91,11 +93,9 @@ class NepaliTextProcessor:
         int: the total number of words in the paragraph.
         """
         total_words = 0
-        sentences = paragraph.split(u'।')
+        sentences = paragraph.split("।")
         for sentence in sentences:
             sentence = sentence.strip()
             if sentence:
                 total_words += self.count_words(sentence)
         return total_words
-
-

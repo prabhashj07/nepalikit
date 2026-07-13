@@ -32,6 +32,9 @@ clean = processor.preprocess_text("<p>  नेपाल  </p>")
 print(clean)  # "नेपाल"
 ```
 
+**Constructor:**
+- `TextProcessor(stopwords=None)` — `stopwords` (list, optional): Custom stopword list. Defaults to empty list.
+
 ### `urls_emails`
 
 URL and email removal utilities.
@@ -41,13 +44,17 @@ from nepalikit.preprocessing import urls_emails
 
 # Replace URLs and emails
 text = "Visit https://example.com or email test@example.com"
-clean = urls_emails.replace_urls_emails(text)
+cleaner = urls_emails()
+clean = cleaner.replace_urls_emails(text)
 print(clean)
 
-# Remove URLs and emails
+# Remove URLs and emails (static method)
 clean = urls_emails.remove_urls_emails(text)
 print(clean)
 ```
+
+**Constructor:**
+- `urls_emails(email_replacement="", url_replacement="")` — strings to replace emails/URLs with. Empty string means removal.
 
 ## Methods
 
@@ -80,7 +87,7 @@ Remove extra whitespace.
 
 ### `TextProcessor.preprocess_text(text)`
 
-Apply all preprocessing steps.
+Apply all preprocessing steps (HTML tags, special chars, whitespace).
 
 **Parameters:**
 - `text` (str): Input text
@@ -90,6 +97,7 @@ Apply all preprocessing steps.
 ### `TextProcessor.remove_stopwords(text)`
 
 Remove stopwords from text using the processor's stopword list.
+Note: defaults to empty stopword list; pass stopwords to constructor.
 
 **Parameters:**
 - `text` (str): Input text
@@ -113,3 +121,21 @@ Count the frequency of each word in a list of tokens.
 - `tokens` (list): List of token strings
 
 **Returns:** `Counter` object with word frequencies
+
+### `urls_emails.replace_urls_emails(text)`
+
+Replace URLs and emails with configured replacement strings.
+
+**Parameters:**
+- `text` (str): Input text
+
+**Returns:** Text with URLs and emails replaced
+
+### `urls_emails.remove_urls_emails(text)` (static)
+
+Remove URLs and emails from text.
+
+**Parameters:**
+- `text` (str): Input text
+
+**Returns:** Text with URLs and emails removed

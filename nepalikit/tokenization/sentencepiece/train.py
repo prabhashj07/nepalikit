@@ -8,19 +8,30 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
+import logging
 from pathlib import Path
+
 import sentencepiece as spm
 
+logger = logging.getLogger(__name__)
 
-def train_model(input_path, model_prefix="NepaliKit_sentencepiece", vocab_size=10000, model_type="bpe"):
-    """
-    Train a SentencePiece model on the given input file.
+
+def train_model(
+    input_path,
+    model_prefix="NepaliKit_sentencepiece",
+    vocab_size=10000,
+    model_type="bpe",
+):
+    """Train a SentencePiece model on the given input file.
 
     Args:
         input_path (str or Path): Path to the training text file.
         model_prefix (str): Output model prefix.
         vocab_size (int): Vocabulary size.
         model_type (str): Model type ('bpe' or 'unigram').
+
+    Raises:
+        FileNotFoundError: If input_path does not exist.
     """
     input_path = Path(input_path)
     if not input_path.exists():
@@ -33,4 +44,6 @@ def train_model(input_path, model_prefix="NepaliKit_sentencepiece", vocab_size=1
         model_type=model_type,
         num_threads=8,
     )
-    print(f"SentencePiece model trained successfully and saved as {model_prefix}.model")
+    logger.info(
+        "SentencePiece model trained successfully and saved as %s.model", model_prefix
+    )

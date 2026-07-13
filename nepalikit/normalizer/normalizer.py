@@ -24,8 +24,8 @@ class NepaliNormalizer:
     - Common Unicode cleanup
     """
 
-    DEVANAGARI_RANGE = re.compile(r'[\u0900-\u097F]')
-    LATIN_RANGE = re.compile(r'[A-Za-z]')
+    DEVANAGARI_RANGE = re.compile(r"[\u0900-\u097F]")
+    LATIN_RANGE = re.compile(r"[A-Za-z]")
 
     def normalize(self, text, form="NFC"):
         """
@@ -43,7 +43,7 @@ class NepaliNormalizer:
         text = unicodedata.normalize(form, text)
         text = self.strip_zwnj(text)
         text = self.strip_control_chars(text)
-        text = re.sub(r'\s+', ' ', text).strip()
+        text = re.sub(r"\s+", " ", text).strip()
         return text
 
     def detect_script(self, text):
@@ -93,7 +93,7 @@ class NepaliNormalizer:
         """
         if not text:
             return text
-        return text.replace('\u200C', '').replace('\u200D', '')
+        return text.replace("\u200c", "").replace("\u200d", "")
 
     def strip_control_chars(self, text):
         """
@@ -110,7 +110,7 @@ class NepaliNormalizer:
         cleaned = []
         for ch in text:
             cat = unicodedata.category(ch)
-            if cat.startswith('C') and cat != 'Cc':
+            if cat.startswith("C") and cat != "Cc":
                 continue
             cleaned.append(ch)
         return "".join(cleaned)

@@ -10,7 +10,6 @@ from nepalikit.preprocessing.TextProcessor import TextProcessor
 from nepalikit.preprocessing.urls_emails import urls_emails
 
 __all__ = [
-    'TextProcessor',
-    'urls_emails',
+    "TextProcessor",
+    "urls_emails",
 ]
-

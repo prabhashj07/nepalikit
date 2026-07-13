@@ -1,5 +1,9 @@
 import pytest
-from nepalikit.transliterate import NepaliTransliterator, roman_to_devanagari, devanagari_to_roman
+from nepalikit.transliterate import (
+    NepaliTransliterator,
+    roman_to_devanagari,
+    devanagari_to_roman,
+)
 
 
 @pytest.fixture

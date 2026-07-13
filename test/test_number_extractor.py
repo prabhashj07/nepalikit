@@ -1,5 +1,9 @@
 import pytest
-from nepalikit.number_extractor import NepaliNumberExtractor, extract_numbers, convert_number
+from nepalikit.number_extractor import (
+    NepaliNumberExtractor,
+    extract_numbers,
+    convert_number,
+)
 
 
 @pytest.fixture

@@ -1,7 +1,7 @@
 """
-sentence_operations.py
+extract_sentences.py
 
-Functions for sentence operations in Nepali text.
+Extract sentences from Nepali text.
 
 Author: Prabhash Kumar Jha
 Email: prabhashj07@gmail.com
@@ -10,6 +10,7 @@ Date: July 2024
 
 import re
 from nepalikit.preprocessing.TextProcessor import TextProcessor
+
 
 class extract_sentences:
     """
@@ -32,6 +33,7 @@ class extract_sentences:
     extract_sentences -> list:
     - Extract and returns a list of sentences from the text.
     """
+
     def __init__(self, text: str):
         """
         Initializes the extract_sentences class with the provided text and initializes a TextProcessor instance.
@@ -40,7 +42,7 @@ class extract_sentences:
         text: str, The text to be processed and from which sentences will be extracted.
         """
         self.text = text
-        self.processor = TextProcessor() 
+        self.processor = TextProcessor()
 
     def normalize_text(self) -> str:
         """
@@ -59,7 +61,7 @@ class extract_sentences:
 
         Parameters:
         normalize_text: str
-        - The normalized text to be preprocessed. 
+        - The normalized text to be preprocessed.
 
         Returns:
         str: The preprocessed text.
@@ -69,7 +71,7 @@ class extract_sentences:
 
     def extract_sentences(self) -> list:
         """
-        Extract sentences splits a given Nepali text into sentences 
+        Extract sentences splits a given Nepali text into sentences
         based on punctuation marks and handles common edge cases like abbreviations.
 
         Returns:
@@ -77,13 +79,13 @@ class extract_sentences:
         """
         normalized_text = self.normalize_text()
         cleaned_text = self.preprocess_text(normalized_text)
-        sentences = re.split(r'([।?!])', cleaned_text)
-        
+        sentences = re.split(r"([।?!])", cleaned_text)
+
         # Pair sentences with their punctuation
-        sentences = [''.join(i) for i in zip(sentences[0::2], sentences[1::2] + [''])]
-        
+        sentences = ["".join(i) for i in zip(sentences[0::2], sentences[1::2] + [""])]
+
         # Handle abbreviations
-        sentences = [re.sub(r'\s+', ' ', sent) for sent in sentences]
+        sentences = [re.sub(r"\s+", " ", sent) for sent in sentences]
         sentences = [sent for sent in sentences if sent.strip()]
-        
+
         return sentences

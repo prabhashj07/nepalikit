@@ -1,3 +1,13 @@
+"""
+load_abbreviation.py
+
+Load abbreviation mappings from text files for sentence segmentation.
+
+Author: Prabhash Kumar Jha
+Email: prabhashj07@gmail.com
+Date: July 2024
+"""
+
 import os
 
 
@@ -14,12 +24,12 @@ def load_abbreviations(folder_path):
     abbreviations = {}
     if not os.path.isdir(folder_path):
         return abbreviations
-    file_path = os.path.join(folder_path, 'abbreviation.txt')
+    file_path = os.path.join(folder_path, "abbreviation.txt")
     try:
         with open(file_path, "r", encoding="utf-8") as file:
             for line in file:
-                if ':' in line:
-                    key, value = line.strip().split(':', 1)
+                if ":" in line:
+                    key, value = line.strip().split(":", 1)
                     abbreviations[key.strip()] = value.strip()
     except FileNotFoundError:
         pass

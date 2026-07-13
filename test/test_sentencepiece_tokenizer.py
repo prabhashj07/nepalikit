@@ -5,12 +5,15 @@ from nepalikit.tokenization import SentencePieceTokenizer, Tokenizer
 from nepalikit.sentence_operation import TextNormalizer
 import sentencepiece as spm
 
+
 @pytest.fixture
 def tokenizer():
     return SentencePieceTokenizer()
 
+
 def test_tokenizer_initialization(tokenizer):
     assert isinstance(tokenizer, SentencePieceTokenizer)
+
 
 def test_tokenize(tokenizer):
     text = "तपाईंलाई कस्तो छ म ठिक छु"
@@ -18,19 +21,23 @@ def test_tokenize(tokenizer):
     assert isinstance(tokens, list)
     # Example: assert tokens == [1, 2, 3, 4, 5]
 
+
 def test_detokenize(tokenizer):
     tokens = [1, 2, 3, 4, 5]
     text = tokenizer.detokenize(tokens)
     assert isinstance(text, str)
     # Example: assert text == "तपाईंलाई कस्तो छ म ठिक छु"
 
+
 def test_tokenize_empty_string(tokenizer):
     tokens = tokenizer.tokenize("")
     assert tokens == []
 
+
 def test_detokenize_empty_list(tokenizer):
     text = tokenizer.detokenize([])
     assert text == ""
+
 
 def test_roundtrip(tokenizer):
     text = "तपाईंलाई कस्तो छ म ठिक छु"
@@ -38,11 +45,13 @@ def test_roundtrip(tokenizer):
     recovered_text = tokenizer.detokenize(tokens)
     assert recovered_text == text
 
+
 def test_model_file_not_found():
-    non_existent_model = '/nonexistent/path/NepaliKit_sentencepiece.model'
+    non_existent_model = "/nonexistent/path/NepaliKit_sentencepiece.model"
     with pytest.raises(OSError):
         sp = spm.SentencePieceProcessor()
         sp.Load(non_existent_model)
+
 
 def test_text_normalizer():
     text = "तपाईंलाई कस्तो छ म ठिक छु"
@@ -50,10 +59,12 @@ def test_text_normalizer():
     normalized_text = normalizer.normalize()
     assert isinstance(normalized_text, str)
 
+
 def test_no_debug_print(capsys):
     SentencePieceTokenizer()
     captured = capsys.readouterr()
-    assert 'Loaded model from' not in captured.out
+    assert "Loaded model from" not in captured.out
+
 
 def test_model_loaded_once(tokenizer):
     """Model should be cached, not reloaded from disk each call."""
@@ -64,15 +75,17 @@ def test_model_loaded_once(tokenizer):
 
 def test_tokenizer_character_level():
     t = Tokenizer()
-    result = t.tokenize("नेपाल", level='character')
+    result = t.tokenize("नेपाल", level="character")
     assert result == list("नेपाल")
+
 
 def test_tokenizer_characters_level():
     t = Tokenizer()
-    result = t.tokenize("नेपाल", level='characters')
+    result = t.tokenize("नेपाल", level="characters")
     assert result == list("नेपाल")
+
 
 def test_tokenizer_invalid_level():
     t = Tokenizer()
     with pytest.raises(ValueError):
-        t.tokenize("नेपाल", level='phoneme')
+        t.tokenize("नेपाल", level="phoneme")

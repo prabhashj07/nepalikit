@@ -1,6 +1,6 @@
 # Contributing to NepaliKit
 
-🎉 First off, thanks for taking the time to contribute! 🎉
+First off, thanks for taking the time to contribute!
 
 The following is a set of guidelines for contributing to NepaliKit. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
@@ -19,7 +19,7 @@ The following is a set of guidelines for contributing to NepaliKit. These are mo
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [NepaliKit Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [your-email@example.com].
+This project and everyone participating in it is governed by the [NepaliKit Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to prabhashj07@gmail.com.
 
 ## How Can I Contribute?
 
@@ -27,23 +27,23 @@ This project and everyone participating in it is governed by the [NepaliKit Code
 
 This section guides you through submitting a bug report for NepaliKit. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
 
-- **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/your-username/nepalikit/issues).
-- If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/your-username/nepalikit/issues/new).
+- **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/prabhashj07/nepalikit/issues).
+- If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/prabhashj07/nepalikit/issues/new).
 
 ### Suggesting Enhancements
 
 This section guides you through submitting an enhancement suggestion for NepaliKit, including completely new features and minor improvements to existing functionality.
 
-- **Ensure the enhancement was not already suggested** by searching on GitHub under [Issues](https://github.com/your-username/nepalikit/issues).
+- **Ensure the enhancement was not already suggested** by searching on GitHub under [Issues](https://github.com/prabhashj07/nepalikit/issues).
 - If you find an open issue addressing your suggestion, please add your thoughts there.
-- If you're unable to find an open issue addressing the suggestion, [open a new one](https://github.com/your-username/nepalikit/issues/new).
+- If you're unable to find an open issue addressing the suggestion, [open a new one](https://github.com/prabhashj07/nepalikit/issues/new).
 
 ### Your First Code Contribution
 
 Unsure where to begin contributing to NepaliKit? You can start by looking through these `good-first-issue` and `help-wanted` issues:
 
-- [Good First Issues](https://github.com/your-username/nepalikit/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue)
-- [Help Wanted Issues](https://github.com/your-username/nepalikit/issues?q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted)
+- [Good First Issues](https://github.com/prabhashj07/nepalikit/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue)
+- [Help Wanted Issues](https://github.com/prabhashj07/nepalikit/issues?q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted)
 
 ### Pull Requests
 
@@ -73,4 +73,3 @@ Unsure where to begin contributing to NepaliKit? You can start by looking throug
 - [GitHub pull request documentation](https://help.github.com/articles/about-pull-requests/)
 - [GitHub Flow guide](https://guides.github.com/introduction/flow/)
 - [How to write a good commit message](https://chris.beams.io/posts/git-commit/)
-

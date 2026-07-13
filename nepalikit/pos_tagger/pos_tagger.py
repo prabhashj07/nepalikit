@@ -27,62 +27,172 @@ class NepaliPOSTagger:
     """
 
     TAGS = {
-        'N_NN': 'Noun',
-        'N_NNP': 'Proper Noun',
-        'V_VM': 'Verb',
-        'ADJ': 'Adjective',
-        'ADV': 'Adverb',
-        'PRON': 'Pronoun',
-        'POSTP': 'Postposition',
-        'CONJ': 'Conjunction',
-        'PART': 'Particle',
-        'INTJ': 'Interjection',
-        'PUNC': 'Punctuation',
+        "N_NN": "Noun",
+        "N_NNP": "Proper Noun",
+        "V_VM": "Verb",
+        "ADJ": "Adjective",
+        "ADV": "Adverb",
+        "PRON": "Pronoun",
+        "POSTP": "Postposition",
+        "CONJ": "Conjunction",
+        "PART": "Particle",
+        "INTJ": "Interjection",
+        "PUNC": "Punctuation",
     }
 
     VERB_SUFFIXES = [
-        'छ', 'छन्', 'छौँ', 'छु', 'छैन', 'छैनन्',
-        'हुन्छ', 'हुन्न', 'हुन्छन्', 'हुन्नन्',
-        'हुन्', 'हुने', 'हुँदै', 'हुँदैन',
-        'थियो', 'थिए', 'थिएन', 'थिएनन्',
-        'गर्', 'भन्', 'जान्', 'आउन्',
-        'लाग्', 'पर्', 'सक्', 'सक्छ',
-        'नु', 'ने', 'ना', 'इन्', 'उन्',
-        'योग्य', 'सक्ने', 'गर्ने', 'भन्ने',
+        "छ",
+        "छन्",
+        "छौँ",
+        "छु",
+        "छैन",
+        "छैनन्",
+        "हुन्छ",
+        "हुन्न",
+        "हुन्छन्",
+        "हुन्नन्",
+        "हुन्",
+        "हुने",
+        "हुँदै",
+        "हुँदैन",
+        "थियो",
+        "थिए",
+        "थिएन",
+        "थिएनन्",
+        "गर्",
+        "भन्",
+        "जान्",
+        "आउन्",
+        "लाग्",
+        "पर्",
+        "सक्",
+        "सक्छ",
+        "नु",
+        "ने",
+        "ना",
+        "इन्",
+        "उन्",
+        "योग्य",
+        "सक्ने",
+        "गर्ने",
+        "भन्ने",
     ]
 
     PRONOUNS = {
-        'म', 'मैं', 'मलाई', 'मेरो', 'मेरा', 'मैले', 'मसँग',
-        'तिमी', 'तिमीलाई', 'तिम्रो', 'तिमीले', 'तिमीसँग',
-        'तपाईं', 'तपाईंलाई', 'तपाईंको', 'तपाईंले', 'तपाईंसँग',
-        'उ', 'उसले', 'उसको', 'उसलाई', 'उससँग',
-        'ऊ', 'ऊले', 'ऊको', 'ऊलाई',
-        'हामी', 'हामीलाई', 'हाम्रो', 'हामीले', 'हामीसँग',
-        'तिमीहरू', 'तिमीहरूलाई', 'तिमीहरूको',
-        'तपाईंहरू', 'तपाईंहरूलाई', 'तपाईंहरूको',
-        'उनी', 'उनीहरू', 'उनले', 'उनको', 'उनलाई', 'उनसँग',
-        'यो', 'यहाँ', 'त्यो', 'त्यहाँ',
-        'कसले', 'कसको', 'कसलाई',
-        'जो', 'जसले', 'जसको', 'जसलाई',
-        'के', 'कुनै', 'सबै', 'अरू', 'अन्य',
+        "म",
+        "मैं",
+        "मलाई",
+        "मेरो",
+        "मेरा",
+        "मैले",
+        "मसँग",
+        "तिमी",
+        "तिमीलाई",
+        "तिम्रो",
+        "तिमीले",
+        "तिमीसँग",
+        "तपाईं",
+        "तपाईंलाई",
+        "तपाईंको",
+        "तपाईंले",
+        "तपाईंसँग",
+        "उ",
+        "उसले",
+        "उसको",
+        "उसलाई",
+        "उससँग",
+        "ऊ",
+        "ऊले",
+        "ऊको",
+        "ऊलाई",
+        "हामी",
+        "हामीलाई",
+        "हाम्रो",
+        "हामीले",
+        "हामीसँग",
+        "तिमीहरू",
+        "तिमीहरूलाई",
+        "तिमीहरूको",
+        "तपाईंहरू",
+        "तपाईंहरूलाई",
+        "तपाईंहरूको",
+        "उनी",
+        "उनीहरू",
+        "उनले",
+        "उनको",
+        "उनलाई",
+        "उनसँग",
+        "यो",
+        "यहाँ",
+        "त्यो",
+        "त्यहाँ",
+        "कसले",
+        "कसको",
+        "कसलाई",
+        "जो",
+        "जसले",
+        "जसको",
+        "जसलाई",
+        "के",
+        "कुनै",
+        "सबै",
+        "अरू",
+        "अन्य",
     }
 
     POSTPOSITIONS = {
-        'मा', 'बाट', 'लाई', 'को', 'का', 'की', 'ले',
-        'सँग', 'प्रति', 'द्वारा', 'माथि', 'तल',
-        'अघि', 'पछि', 'बीच', 'तर्फ', 'नजिक', 'देखि',
-        'सहित', 'समेत', 'अनुसार', 'विपरीत', 'गत',
-        'मध्ये', 'परि', 'सम्बन्धी',
+        "मा",
+        "बाट",
+        "लाई",
+        "को",
+        "का",
+        "की",
+        "ले",
+        "सँग",
+        "प्रति",
+        "द्वारा",
+        "माथि",
+        "तल",
+        "अघि",
+        "पछि",
+        "बीच",
+        "तर्फ",
+        "नजिक",
+        "देखि",
+        "सहित",
+        "समेत",
+        "अनुसार",
+        "विपरीत",
+        "गत",
+        "मध्ये",
+        "परि",
+        "सम्बन्धी",
     }
 
     CONJUNCTIONS = {
-        'र', 'तर', 'किनभने', 'वा', 'अथवा', 'तथा',
-        'यदि', 'अर्थात्', 'जस्तै',
+        "र",
+        "तर",
+        "किनभने",
+        "वा",
+        "अथवा",
+        "तथा",
+        "यदि",
+        "अर्थात्",
+        "जस्तै",
     }
 
     PARTICLES = {
-        'पनि', 'नै', 'त', 'चाहिँ', 'कि', 'भने',
-        'होइन', 'हैन', 'नि', 'न', 'मात्र',
+        "पनि",
+        "नै",
+        "त",
+        "चाहिँ",
+        "कि",
+        "भने",
+        "होइन",
+        "हैन",
+        "नि",
+        "न",
+        "मात्र",
     }
 
     def __init__(self):
@@ -127,38 +237,38 @@ class NepaliPOSTagger:
     def _tag_single(self, token):
         """Determine POS tag for a single token."""
         if not token:
-            return 'PUNC'
+            return "PUNC"
 
-        if re.match(r'^[।,;?!—\-\.\:\(\)\[\]]+$', token):
-            return 'PUNC'
+        if re.match(r"^[।,;?!—\-\.\:\(\)\[\]]+$", token):
+            return "PUNC"
 
         if token in self.dictionary:
             return self.dictionary[token]
 
-        clean = token.strip('।,;?!—-')
+        clean = token.strip("।,;?!—-")
 
         if clean in self.PRONOUNS:
-            return 'PRON'
+            return "PRON"
         if clean in self.POSTPOSITIONS:
-            return 'POSTP'
+            return "POSTP"
         if clean in self.CONJUNCTIONS:
-            return 'CONJ'
+            return "CONJ"
         if clean in self.PARTICLES:
-            return 'PART'
+            return "PART"
 
         if self._is_proper_noun(clean):
-            return 'N_NNP'
+            return "N_NNP"
 
         if self._has_verb_suffix(clean):
-            return 'V_VM'
+            return "V_VM"
 
         if self._has_adjective_suffix(clean):
-            return 'ADJ'
+            return "ADJ"
 
         if self._has_adverb_suffix(clean):
-            return 'ADV'
+            return "ADV"
 
-        return 'N_NN'
+        return "N_NN"
 
     def _is_proper_noun(self, word):
         """Check if word looks like a proper noun (first letter is uppercase Latin)."""
@@ -177,7 +287,7 @@ class NepaliPOSTagger:
 
     def _has_adjective_suffix(self, word):
         """Check if word ends with a common adjective suffix."""
-        adj_suffixes = ['योग्य', 'मय', 'पूर्ण', 'हीन', 'वान', 'लु', 'दार']
+        adj_suffixes = ["योग्य", "मय", "पूर्ण", "हीन", "वान", "लु", "दार"]
         for suffix in adj_suffixes:
             if word.endswith(suffix) and len(word) > len(suffix):
                 return True
@@ -185,7 +295,7 @@ class NepaliPOSTagger:
 
     def _has_adverb_suffix(self, word):
         """Check if word ends with a common adverb suffix."""
-        adv_suffixes = ['तर', 'रीति', 'शैली', 'पनि']
+        adv_suffixes = ["तर", "रीति", "शैली", "पनि"]
         for suffix in adv_suffixes:
             if word.endswith(suffix) and len(word) > len(suffix):
                 return True

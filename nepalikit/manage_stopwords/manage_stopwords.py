@@ -28,7 +28,11 @@ def _load_default_stopwords():
         return
     words = set()
     try:
-        data = resources.files("nepalikit").joinpath("data/stopwords.txt").read_text(encoding="utf-8")
+        data = (
+            resources.files("nepalikit")
+            .joinpath("data/stopwords.txt")
+            .read_text(encoding="utf-8")
+        )
         for line in data.splitlines():
             w = line.strip()
             if w and not w.startswith("#"):
@@ -143,7 +147,7 @@ def remove_stopwords_from_text(text, stopwords=None):
 
     tokens = text.split()
     filtered_tokens = [word for word in tokens if word not in stopwords]
-    return ' '.join(filtered_tokens)
+    return " ".join(filtered_tokens)
 
 
 # Legacy API - preserved for backward compatibility
@@ -162,6 +166,8 @@ def load_stopwords(folder_path):
         return stopwords
     for filename in os.listdir(folder_path):
         if filename.endswith(".txt"):
-            with open(os.path.join(folder_path, filename), "r", encoding="utf-8") as file:
+            with open(
+                os.path.join(folder_path, filename), "r", encoding="utf-8"
+            ) as file:
                 stopwords.extend([line.strip() for line in file.readlines()])
     return stopwords

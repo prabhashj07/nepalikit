@@ -11,6 +11,5 @@ Date: July 2024
 from nepalikit.utils.utils import NepaliTextProcessor
 
 __all__ = [
-    'NepaliTextProcessor',
+    "NepaliTextProcessor",
 ]
-

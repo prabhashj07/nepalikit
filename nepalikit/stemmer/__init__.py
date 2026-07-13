@@ -11,7 +11,7 @@ Date: July 2024
 from nepalikit.stemmer.stemmer import NepaliStemmer, stem, stem_text
 
 __all__ = [
-    'NepaliStemmer',
-    'stem',
-    'stem_text',
+    "NepaliStemmer",
+    "stem",
+    "stem_text",
 ]

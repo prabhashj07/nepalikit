@@ -11,6 +11,6 @@ Date: July 2024
 from nepalikit.pos_tagger.pos_tagger import NepaliPOSTagger, tag_pos
 
 __all__ = [
-    'NepaliPOSTagger',
-    'tag_pos',
+    "NepaliPOSTagger",
+    "tag_pos",
 ]

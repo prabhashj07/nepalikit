@@ -14,16 +14,16 @@ def test_normalize_basic(normalizer):
 
 
 def test_normalize_strips_zwnj(normalizer):
-    text = "नेपाल\u200Cएक"
+    text = "नेपाल\u200cएक"
     result = normalizer.normalize(text)
-    assert "\u200C" not in result
+    assert "\u200c" not in result
     assert result == "नेपालएक"
 
 
 def test_normalize_strips_zwj(normalizer):
-    text = "नेपाल\u200Dएक"
+    text = "नेपाल\u200dएक"
     result = normalizer.normalize(text)
-    assert "\u200D" not in result
+    assert "\u200d" not in result
 
 
 def test_normalize_collapses_whitespace(normalizer):
@@ -61,7 +61,7 @@ def test_detect_script_numbers(normalizer):
 
 
 def test_strip_zwnj(normalizer):
-    result = normalizer.strip_zwnj("abc\u200Cdef\u200Dghi")
+    result = normalizer.strip_zwnj("abc\u200cdef\u200dghi")
     assert result == "abcdefghi"
 
 

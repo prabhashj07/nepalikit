@@ -49,24 +49,79 @@ print(original)
 
 ## Methods
 
-### `Tokenizer.tokenize(text, level='word', new_punctuation=None)`
+### `Tokenizer.sentence_tokenize(text)`
 
-Tokenize input text.
+Tokenize text into sentences based on `।` character.
 
 **Parameters:**
 - `text` (str): Input text
-- `level` (str): 'word', 'sentence', or 'characters'
+
+**Returns:** List of sentence strings
+
+### `Tokenizer.word_tokenize(sentence, new_punctuation=None)`
+
+Tokenize a sentence into words.
+
+**Parameters:**
+- `sentence` (str): Input sentence
+- `new_punctuation` (list, optional): Additional punctuation marks to split on
+
+**Returns:** List of word strings
+
+### `Tokenizer.character_tokenize(word)`
+
+Tokenize a word into characters.
+
+**Parameters:**
+- `word` (str): Input word
+
+**Returns:** List of character strings
+
+### `Tokenizer.tokenize(text, level='word', new_punctuation=None)`
+
+General tokenization method.
+
+**Parameters:**
+- `text` (str): Input text
+- `level` (str): 'word', 'sentence', or 'character'
 - `new_punctuation` (list, optional): Additional punctuation marks
 
 **Returns:** List of tokens
 
+### `Tokenizer.sentence_detokenize(sentences)`
+
+Join sentences back with `।` delimiter.
+
+**Parameters:**
+- `sentences` (list): List of sentence strings
+
+**Returns:** Detokenized text
+
+### `Tokenizer.word_detokenize(words)`
+
+Join words with spaces.
+
+**Parameters:**
+- `words` (list): List of word strings
+
+**Returns:** Detokenized sentence
+
+### `Tokenizer.character_detokenize(characters)`
+
+Join characters without spaces.
+
+**Parameters:**
+- `characters` (list): List of character strings
+
+**Returns:** Detokenized word
+
 ### `Tokenizer.detokenize(tokens, level='word')`
 
-Detokenize tokens back to text.
+General detokenization method.
 
 **Parameters:**
 - `tokens` (list): List of tokens
-- `level` (str): 'word', 'sentence', or 'characters'
+- `level` (str): 'word', 'sentence', or 'character'
 
 **Returns:** Detokenized text
 

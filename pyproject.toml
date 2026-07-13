@@ -13,6 +13,8 @@ authors = [
     { name = "Prabhash Kumar Jha", email = "prabhashj07@gmail.com" },
 ]
 classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -21,6 +23,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Natural Language :: Nepali",
     "Topic :: Text Processing :: Linguistic",
+    "Topic :: Text Processing :: General",
 ]
 dependencies = [
     "sentencepiece>=0.2.0,<1.0",

@@ -1,5 +1,9 @@
 import pytest
-from nepalikit.spell_checker import NepaliSpellChecker, check_spelling, suggest_corrections
+from nepalikit.spell_checker import (
+    NepaliSpellChecker,
+    check_spelling,
+    suggest_corrections,
+)
 
 
 @pytest.fixture

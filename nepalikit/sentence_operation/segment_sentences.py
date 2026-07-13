@@ -8,7 +8,9 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-from nepalikit.sentence_operation.extract_sentences import extract_sentences as ExtractSentences
+from nepalikit.sentence_operation.extract_sentences import (
+    extract_sentences as ExtractSentences,
+)
 
 
 def segment_sentences(text: str) -> list:

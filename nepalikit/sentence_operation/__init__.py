@@ -16,11 +16,10 @@ from nepalikit.sentence_operation.segment_sentences import segment_sentences
 from nepalikit.sentence_operation.sentence_stats import SentenceAnalyzer
 
 __all__ = [
-    'extract_sentences',
-    'load_abbreviations',
-    'TextNormalizer',
-    'AbbreviationReplacer',
-    'segment_sentences',
-    'SentenceAnalyzer',
+    "extract_sentences",
+    "load_abbreviations",
+    "TextNormalizer",
+    "AbbreviationReplacer",
+    "segment_sentences",
+    "SentenceAnalyzer",
 ]
-

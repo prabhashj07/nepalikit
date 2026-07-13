@@ -27,44 +27,134 @@ class NepaliNumberExtractor:
     """
 
     DEVANAGARI_DIGITS = {
-        '०': 0, '१': 1, '२': 2, '३': 3, '४': 4,
-        '५': 5, '६': 6, '७': 7, '८': 8, '९': 9,
+        "०": 0,
+        "१": 1,
+        "२": 2,
+        "३": 3,
+        "४": 4,
+        "५": 5,
+        "६": 6,
+        "७": 7,
+        "८": 8,
+        "९": 9,
     }
 
     NUMBER_WORDS = {
-        'शून्य': 0,
-        'एक': 1, 'दुई': 2, 'तीन': 3, 'चार': 4,
-        'पाँच': 5, 'पाच': 5,
-        'छ': 6, 'सात': 7, 'आठ': 8, 'नौ': 9,
-        'दश': 10, 'दस': 10,
-        'एघार': 11, 'बाह्र': 12, 'तेह्र': 13, 'चौध': 14,
-        'पन्ध्र': 15, 'सोह्र': 16, 'सत्र': 17, 'अठार': 18, 'उन्नाइस': 19,
-        'बीस': 20, 'तीस': 30, 'चालीस': 40, 'पचास': 50,
-        'साठी': 60, 'सत्तरी': 70, 'असी': 80, 'नब्बे': 90,
-        'एक्काइस': 21, 'बाइस': 22, 'तेइस': 23, 'चौबीस': 24,
-        'पच्चीस': 25, 'छब्बीस': 26, 'सत्ताइस': 27, 'अठ्ठाइस': 28, 'उनन्तिस': 29,
-        'एकतीस': 31, 'बत्तीस': 32, 'तेत्तीस': 33, 'चौँतीस': 34,
-        'पैँतीस': 35, 'छत्तीस': 36, 'सैँतीस': 37, 'अठतीस': 38, 'उनन्चालीस': 39,
-        'एकचालीस': 41, 'बयालीस': 42, 'त्रिचालीस': 43, 'चवालीस': 44,
-        'पैँतालीस': 45, 'छयालीस': 46, 'सतचालीस': 47, 'अठचालीस': 48, 'उनन्चास': 49,
-        'एकाउन्न': 51, 'बाउन्न': 52, 'त्रिपन्न': 53, 'चवन्न': 54,
-        'पचपन्न': 55, 'छपन्न': 56, 'सन्ताउन्न': 57, 'अन्ठाउन्न': 58, 'उनन्साठी': 59,
-        'एकसट्ठी': 61, 'बैसट्ठी': 62, 'त्रिसट्ठी': 63, 'चौंसट्ठी': 64,
-        'पैंसट्ठी': 65, 'छैसट्ठी': 66, 'सतसट्ठी': 67, 'अठसट्ठी': 68, 'उनन्सत्तरी': 69,
-        'एकहत्तर': 71, 'बहत्तर': 72, 'त्रिहत्तर': 73, 'चौहत्तर': 74,
-        'पचहत्तर': 75, 'छहत्तर': 76, 'सतहत्तर': 77, 'अठहत्तर': 78, 'उनासी': 79,
-        'एकासी': 81, 'बयासी': 82, 'त्रियासी': 83, 'चौरासी': 84,
-        'पचासी': 85, 'छयासी': 86, 'सतासी': 87, 'अठासी': 88, 'उनान्नब्बे': 89,
-        'एकानब्बे': 91, 'बयानब्बे': 92, 'त्रियानब्बे': 93, 'चौरानब्बे': 94,
-        'पन्चानब्बे': 95, 'छयानब्बे': 96, 'सन्तानब्बे': 97, 'अन्ठानब्बे': 98, 'उनान्सय': 99,
+        "शून्य": 0,
+        "एक": 1,
+        "दुई": 2,
+        "तीन": 3,
+        "चार": 4,
+        "पाँच": 5,
+        "पाच": 5,
+        "छ": 6,
+        "सात": 7,
+        "आठ": 8,
+        "नौ": 9,
+        "दश": 10,
+        "दस": 10,
+        "एघार": 11,
+        "बाह्र": 12,
+        "तेह्र": 13,
+        "चौध": 14,
+        "पन्ध्र": 15,
+        "सोह्र": 16,
+        "सत्र": 17,
+        "अठार": 18,
+        "उन्नाइस": 19,
+        "बीस": 20,
+        "तीस": 30,
+        "चालीस": 40,
+        "पचास": 50,
+        "साठी": 60,
+        "सत्तरी": 70,
+        "असी": 80,
+        "नब्बे": 90,
+        "एक्काइस": 21,
+        "बाइस": 22,
+        "तेइस": 23,
+        "चौबीस": 24,
+        "पच्चीस": 25,
+        "छब्बीस": 26,
+        "सत्ताइस": 27,
+        "अठ्ठाइस": 28,
+        "उनन्तिस": 29,
+        "एकतीस": 31,
+        "बत्तीस": 32,
+        "तेत्तीस": 33,
+        "चौँतीस": 34,
+        "पैँतीस": 35,
+        "छत्तीस": 36,
+        "सैँतीस": 37,
+        "अठतीस": 38,
+        "उनन्चालीस": 39,
+        "एकचालीस": 41,
+        "बयालीस": 42,
+        "त्रिचालीस": 43,
+        "चवालीस": 44,
+        "पैँतालीस": 45,
+        "छयालीस": 46,
+        "सतचालीस": 47,
+        "अठचालीस": 48,
+        "उनन्चास": 49,
+        "एकाउन्न": 51,
+        "बाउन्न": 52,
+        "त्रिपन्न": 53,
+        "चवन्न": 54,
+        "पचपन्न": 55,
+        "छपन्न": 56,
+        "सन्ताउन्न": 57,
+        "अन्ठाउन्न": 58,
+        "उनन्साठी": 59,
+        "एकसट्ठी": 61,
+        "बैसट्ठी": 62,
+        "त्रिसट्ठी": 63,
+        "चौंसट्ठी": 64,
+        "पैंसट्ठी": 65,
+        "छैसट्ठी": 66,
+        "सतसट्ठी": 67,
+        "अठसट्ठी": 68,
+        "उनन्सत्तरी": 69,
+        "एकहत्तर": 71,
+        "बहत्तर": 72,
+        "त्रिहत्तर": 73,
+        "चौहत्तर": 74,
+        "पचहत्तर": 75,
+        "छहत्तर": 76,
+        "सतहत्तर": 77,
+        "अठहत्तर": 78,
+        "उनासी": 79,
+        "एकासी": 81,
+        "बयासी": 82,
+        "त्रियासी": 83,
+        "चौरासी": 84,
+        "पचासी": 85,
+        "छयासी": 86,
+        "सतासी": 87,
+        "अठासी": 88,
+        "उनान्नब्बे": 89,
+        "एकानब्बे": 91,
+        "बयानब्बे": 92,
+        "त्रियानब्बे": 93,
+        "चौरानब्बे": 94,
+        "पन्चानब्बे": 95,
+        "छयानब्बे": 96,
+        "सन्तानब्बे": 97,
+        "अन्ठानब्बे": 98,
+        "उनान्सय": 99,
     }
 
     MULTIPLIERS = {
-        'सय': 100, 'हजार': 1000, 'हजारौं': 1000,
-        'लाख': 100000, 'लाखौं': 100000,
-        'करोड': 10000000, 'करोडौं': 10000000,
-        'अर्ब': 1000000000, 'अर्बौं': 1000000000,
-        'खर्ब': 100000000000,
+        "सय": 100,
+        "हजार": 1000,
+        "हजारौं": 1000,
+        "लाख": 100000,
+        "लाखौं": 100000,
+        "करोड": 10000000,
+        "करोडौं": 10000000,
+        "अर्ब": 1000000000,
+        "अर्बौं": 1000000000,
+        "खर्ब": 100000000000,
     }
 
     def extract(self, text):
@@ -82,29 +172,28 @@ class NepaliNumberExtractor:
 
         results = []
 
-        devanagari_num_pattern = r'[०-९]+'
+        devanagari_num_pattern = r"[०-९]+"
         for match in re.finditer(devanagari_num_pattern, text):
             expr = match.group()
             value = self._devanagari_to_int(expr)
             if value is not None:
                 results.append((expr, value))
 
-        multipliers_re = '|'.join(
+        multipliers_re = "|".join(
             re.escape(w) for w in sorted(self.MULTIPLIERS.keys(), key=len, reverse=True)
         )
-        word_values_re = '|'.join(
-            re.escape(w) for w in sorted(
-                self.NUMBER_WORDS.keys(), key=len, reverse=True
-            )
+        word_values_re = "|".join(
+            re.escape(w)
+            for w in sorted(self.NUMBER_WORDS.keys(), key=len, reverse=True)
         )
         compound_pattern = (
-            r'(?:[०-९]+(?:\.[०-९]+)?'
-            r'|' + word_values_re + r')'
-            r'\s*'
-            r'(?:' + multipliers_re + r')'
-            r'(?:\s+(?:[०-९]+(?:\.[०-९]+)?'
-            r'|' + word_values_re + r')'
-            r'\s*(?:' + multipliers_re + r')?)*'
+            r"(?:[०-९]+(?:\.[०-९]+)?"
+            r"|" + word_values_re + r")"
+            r"\s*"
+            r"(?:" + multipliers_re + r")"
+            r"(?:\s+(?:[०-९]+(?:\.[०-९]+)?"
+            r"|" + word_values_re + r")"
+            r"\s*(?:" + multipliers_re + r")?)*"
         )
         for match in re.finditer(compound_pattern, text):
             expr = match.group().strip()
@@ -113,17 +202,15 @@ class NepaliNumberExtractor:
                 if value is not None:
                     results.append((expr, value))
 
-        standalone_words = sorted(
-            self.NUMBER_WORDS.keys(), key=len, reverse=True
-        )
+        standalone_words = sorted(self.NUMBER_WORDS.keys(), key=len, reverse=True)
         non_standalone = set(self.MULTIPLIERS.keys()) | {
-            'छ',  # ambiguous: number 6 or auxiliary verb
+            "छ",  # ambiguous: number 6 or auxiliary verb
         }
-        standalone_re = '|'.join(
+        standalone_re = "|".join(
             re.escape(w) for w in standalone_words if w not in non_standalone
         )
         if standalone_re:
-            for match in re.finditer(r'\b(' + standalone_re + r')\b', text):
+            for match in re.finditer(r"\b(" + standalone_re + r")\b", text):
                 expr = match.group()
                 if expr not in [r[0] for r in results]:
                     value = self.NUMBER_WORDS.get(expr)
@@ -149,14 +236,14 @@ class NepaliNumberExtractor:
         text = self._normalize_digits(text)
         text = self._strip_commas(text)
 
-        devanagari_digits = re.fullmatch(r'[०-९]+', text)
+        devanagari_digits = re.fullmatch(r"[०-९]+", text)
         if devanagari_digits:
             return self._devanagari_to_int(text)
 
-        if re.fullmatch(r'\d+', text):
+        if re.fullmatch(r"\d+", text):
             return int(text)
 
-        if re.fullmatch(r'\d+\.\d+', text):
+        if re.fullmatch(r"\d+\.\d+", text):
             return round(float(text))
 
         return self._word_to_int(text)
@@ -169,7 +256,7 @@ class NepaliNumberExtractor:
 
     def _strip_commas(self, text):
         """Remove commas only between digits (Indian-style grouping)."""
-        return re.sub(r'(?<=\d),(?=\d)', '', text)
+        return re.sub(r"(?<=\d),(?=\d)", "", text)
 
     def _devanagari_to_int(self, text):
         """Convert a Devanagari digit string to integer."""
@@ -204,7 +291,7 @@ class NepaliNumberExtractor:
                     current += val
             else:
                 try:
-                    if '.' in token:
+                    if "." in token:
                         current += float(token)
                     else:
                         current += int(token)

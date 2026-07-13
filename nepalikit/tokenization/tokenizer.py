@@ -10,6 +10,7 @@ Date: July 2024
 
 import string
 
+
 class Tokenizer:
     def __init__(self):
         """Initialize the Tokenizer class."""
@@ -19,14 +20,17 @@ class Tokenizer:
         """
         Tokenizes input text into sentences based on '।' character.
 
-        Parameters: 
+        Parameters:
         - text: str, input to tokenize into sentences.
 
         Returns:
         - list of str: tokenized sentences.
         """
-        sentences = text.strip().split(u"।")
-        sentences = [sentence.translate(str.maketrans('', '', string.punctuation)) for sentence in sentences]
+        sentences = text.strip().split("।")
+        sentences = [
+            sentence.translate(str.maketrans("", "", string.punctuation))
+            for sentence in sentences
+        ]
         return sentences
 
     def word_tokenize(self, sentence, new_punctuation=None):
@@ -40,12 +44,12 @@ class Tokenizer:
         Returns:
         - list of str: tokenized words.
         """
-        punctuations = ['।', ',', ';', '?', '!', '—', '-']
+        punctuations = ["।", ",", ";", "?", "!", "—", "-"]
         if new_punctuation:
             punctuations.extend(new_punctuation)
 
         for punct in punctuations:
-            sentence = ' '.join(sentence.split(punct))
+            sentence = " ".join(sentence.split(punct))
 
         return sentence.split()
 
@@ -61,27 +65,28 @@ class Tokenizer:
         """
         return list(word)
 
-    def tokenize(self, text, level='word', new_punctuation=None):
+    def tokenize(self, text, level="word", new_punctuation=None):
         """
         General tokenization method
 
         Parameters:
-        - text: str, input text to tokenize 
+        - text: str, input text to tokenize
         - level: str, level of tokenization ('sentence', 'word', 'character')
         - new_punctuation: list, additional punctuation to consider for word tokenization
 
         Returns:
         list, tokenized text based on specified level of tokenization.
         """
-        if level == 'sentence':
+        if level == "sentence":
             return self.sentence_tokenize(text)
-        elif level == 'word':
+        elif level == "word":
             return self.word_tokenize(text, new_punctuation)
-        elif level in ('character', 'characters'):
+        elif level in ("character", "characters"):
             return self.character_tokenize(text)
         else:
-            raise ValueError("Unsupported tokenization level. Choose from 'sentence', 'word', 'character'.")
-
+            raise ValueError(
+                "Unsupported tokenization level. Choose from 'sentence', 'word', 'character'."
+            )
 
     def sentence_detokenize(self, sentences):
         """
@@ -91,10 +96,10 @@ class Tokenizer:
         - sentences: list, tokenized sentences to be detokenized
 
         Returns:
-        - str, original text formed by joining the sentences 
+        - str, original text formed by joining the sentences
 
         """
-        return u"।".join(sentences)
+        return "।".join(sentences)
 
     def word_detokenize(self, words):
         """
@@ -117,11 +122,11 @@ class Tokenizer:
         - characters: list, tokenized characters to be detokenizeed
 
         Returns:
-        - str, original word formed by joining the characters 
+        - str, original word formed by joining the characters
         """
         return "".join(characters)
 
-    def detokenize(self, tokens, level='word'):
+    def detokenize(self, tokens, level="word"):
         """
         General detokenization method
 
@@ -132,14 +137,16 @@ class Tokenizer:
         Returns:
         - str, original text based on specified level of detokenization.
         """
-        if level == 'sentence':
-            return u"।".join(tokens)
-        elif level == 'word':
+        if level == "sentence":
+            return "।".join(tokens)
+        elif level == "word":
             return " ".join(tokens)
-        elif level == 'character':
+        elif level == "character":
             return "".join(tokens)
         else:
-            raise ValueError("Unsupported detokenization level. Choose from 'sentence', 'word', 'character'.")
+            raise ValueError(
+                "Unsupported detokenization level. Choose from 'sentence', 'word', 'character'."
+            )
 
     def __str__(self):
         return "Tokenizer for Nepali language"

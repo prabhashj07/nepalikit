@@ -104,9 +104,11 @@ class NepaliSpellChecker:
         words = text.split()
         corrected = []
         for word in words:
-            clean = re.sub(r'[।,;?!—\-]', '', word)
+            clean = re.sub(r"[।,;?!—\-]", "", word)
             if clean and not self.check(clean):
-                suggestions = self.suggest(clean, max_distance=max_distance, max_suggestions=2)
+                suggestions = self.suggest(
+                    clean, max_distance=max_distance, max_suggestions=2
+                )
                 if len(suggestions) == 1:
                     corrected.append(word.replace(clean, suggestions[0]))
                 else:
@@ -141,11 +143,7 @@ class NepaliSpellChecker:
             min_val = curr[0]
             for j in range(1, n + 1):
                 cost = 0 if s1[i - 1] == s2[j - 1] else 1
-                curr[j] = min(
-                    prev[j] + 1,
-                    curr[j - 1] + 1,
-                    prev[j - 1] + cost
-                )
+                curr[j] = min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost)
                 min_val = min(min_val, curr[j])
             if min_val > max_dist:
                 return max_dist + 1

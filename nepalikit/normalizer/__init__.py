@@ -11,7 +11,7 @@ Date: July 2024
 from nepalikit.normalizer.normalizer import NepaliNormalizer, normalize, detect_script
 
 __all__ = [
-    'NepaliNormalizer',
-    'normalize',
-    'detect_script',
+    "NepaliNormalizer",
+    "normalize",
+    "detect_script",
 ]
