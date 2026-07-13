@@ -35,8 +35,22 @@ from nepalikit.sentence_operation import (
     SentenceAnalyzer,
 )
 
-from nepalikit.stemmer import NepaliStemmer, stem, stem_text
-from nepalikit.normalizer import NepaliNormalizer, normalize, detect_script
+from nepalikit.stemmer import (
+    NepaliStemmer,
+    stem,
+    stem_text,
+    SnowballStemmer,
+    snowball_stem,
+)
+from nepalikit.normalizer import (
+    NepaliNormalizer,
+    normalize,
+    detect_script,
+    is_devanagari,
+    contains_devanagari,
+    contains_latin,
+    mixed_script_ratio,
+)
 from nepalikit.number_extractor import (
     NepaliNumberExtractor,
     extract_numbers,
@@ -52,10 +66,11 @@ from nepalikit.transliterate import (
     NepaliTransliterator,
     roman_to_devanagari,
     devanagari_to_roman,
+    PreetiConverter,
+    preeti_to_unicode,
 )
 
 __all__ = [
-    # Existing
     "TextProcessor",
     "urls_emails",
     "remove_stopwords_from_text",
@@ -69,32 +84,33 @@ __all__ = [
     "segment_sentences",
     "SentenceAnalyzer",
     "load_stopwords",
-    # Stopwords (enhanced)
     "get_stopwords",
     "is_stopword",
     "add_stopwords",
     "remove_custom_stopwords",
-    # New: Stemmer
     "NepaliStemmer",
     "stem",
     "stem_text",
-    # New: Normalizer
+    "SnowballStemmer",
+    "snowball_stem",
     "NepaliNormalizer",
     "normalize",
     "detect_script",
-    # New: Number Extractor
+    "is_devanagari",
+    "contains_devanagari",
+    "contains_latin",
+    "mixed_script_ratio",
     "NepaliNumberExtractor",
     "extract_numbers",
     "convert_number",
-    # New: POS Tagger
     "NepaliPOSTagger",
     "tag_pos",
-    # New: Spell Checker
     "NepaliSpellChecker",
     "check_spelling",
     "suggest_corrections",
-    # New: Transliteration
     "NepaliTransliterator",
     "roman_to_devanagari",
     "devanagari_to_roman",
+    "PreetiConverter",
+    "preeti_to_unicode",
 ]

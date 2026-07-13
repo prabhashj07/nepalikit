@@ -151,11 +151,43 @@ class NepaliTransliterator:
         "ri": "\u0943",
     }
 
+    EXCEPTION_WORDS = {
+        "kathmandu": "\u0915\u093e\u0910\u092e\u093e\u0921\u0941\u0902",
+        "patan": "\u092a\u093e\u091f\u093e\u0928",
+        "bhaktapur": "\u092d\u0915\u094d\u0924\u092a\u0941\u0930",
+        "pokhara": "\u092a\u094b\u0916\u0930\u093e",
+        "lalitpur": "\u0932\u0932\u093f\u0924\u092a\u0941\u0930",
+        "chitwan": "\u091a\u093f\u0924\u0935\u0928",
+        "dhulikhel": "\u0927\u0941\u0932\u093f\u0916\u0947\u0932",
+        "nagarkot": "\u0928\u0917\u0930\u0915\u094b\u091f",
+        "janakpur": "\u091c\u093e\u0928\u0915\u092a\u0941\u0930",
+        "biratnagar": "\u092c\u093f\u0930\u093e\u091f\u0928\u0917\u0930",
+        "nepalganj": "\u0928\u0947\u092a\u093e\u0932\u0917\u0902\u091c",
+        "nepal": "\u0928\u0947\u092a\u093e\u0932",
+        "namaste": "\u0928\u092e\u0938\u094d\u0924\u0947",
+        "dhanyabad": "\u0927\u0928\u094d\u092f\u0935\u093e\u0926",
+        "swagat": "\u0938\u094d\u0935\u093e\u0917\u0924",
+        "krishna": "\u0915\u0943\u0937\u094d\u0923",
+        "ganesh": "\u0917\u0923\u0947\u0936",
+        "ram": "\u0930\u093e\u092e",
+        "sita": "\u0938\u0940\u0924\u093e",
+        "guru": "\u0917\u0941\u0930\u0942",
+        "facebook": "\u092b\u0947\u0938\u092c\u0941\u0915",
+        "youtube": "\u092f\u0942\u091f\u0928\u0942\u092c",
+        "google": "\u0917\u0941\u0917\u0932",
+        "twitter": "\u091f\u094d\u0935\u093f\u091f\u0930",
+        "whatsapp": "\u0935\u094d\u0939\u093e\u091f\u094d\u0938\u093e\u092a",
+        "instagram": "\u0907\u0902\u0938\u094d\u091f\u093e\u0917\u094d\u0930\u093e\u092e",
+    }
+
     DEVANAGARI_DIGITS = "\u0966\u0967\u0968\u0969\u096a\u096b\u096c\u096d\u096e\u096f"
 
     def roman_to_devanagari(self, text):
         """
         Convert Romanized Nepali to Devanagari.
+
+        Checks exception words (common proper nouns) first, then falls
+        back to greedy character-level mapping.
 
         Args:
             text (str): Romanized Nepali text.
@@ -167,6 +199,13 @@ class NepaliTransliterator:
             return text
 
         text = text.lower()
+
+        for word, dev in self.EXCEPTION_WORDS.items():
+            text = text.replace(word, dev)
+
+        if not any(ord(c) < 128 for c in text):
+            return text
+
         result = []
         i = 0
 

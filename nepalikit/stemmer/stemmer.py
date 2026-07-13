@@ -19,9 +19,15 @@ class NepaliStemmer:
 
     Implements suffix stripping for common Nepali inflections
     including case markers, possessives, plurals, and verb endings.
+    Suffixes are tried longest-first so composite forms like
+    'हरूकोलागि' are stripped before shorter ones like 'को'.
+
+    Args:
+        min_residue (int): Minimum stem length after stripping. Default 2.
     """
 
-    def __init__(self):
+    def __init__(self, min_residue=2):
+        self.min_residue = min_residue
         pkg = resources.files("nepalikit")
         rules_path = str(pkg.joinpath("data", "stemmer_rules.json"))
         try:
@@ -30,11 +36,17 @@ class NepaliStemmer:
             self.suffixes = rules.get("suffixes", [])
         except (FileNotFoundError, json.JSONDecodeError):
             self.suffixes = [
-                "हरूमा",
-                "हरूले",
+                "हरूकोलागि",
+                "हरूकालागि",
                 "हरूको",
-                "हरूबाट",
+                "हरूका",
+                "हरूकी",
+                "हरूले",
                 "हरूलाई",
+                "हरूमा",
+                "हरूबाट",
+                "हरूसँग",
+                "हरूसम्म",
                 "हरुमा",
                 "हरुले",
                 "हरुको",
@@ -104,13 +116,6 @@ class NepaliStemmer:
                 "आउन्",
                 "इन्",
                 "उन्",
-                "एक",
-                "दुई",
-                "तीन",
-                "चार",
-                "पहिलो",
-                "दोस्रो",
-                "तेस्रो",
             ]
         self.suffixes.sort(key=len, reverse=True)
 
@@ -124,11 +129,11 @@ class NepaliStemmer:
         Returns:
             str: The stemmed (root) form of the word.
         """
-        if not word or len(word) <= 2:
+        if not word or len(word) <= self.min_residue:
             return word
 
         for suffix in self.suffixes:
-            if word.endswith(suffix) and len(word) - len(suffix) >= 2:
+            if word.endswith(suffix) and len(word) - len(suffix) >= self.min_residue:
                 stemmed = word[: -len(suffix)]
                 if stemmed:
                     return stemmed
@@ -188,3 +193,103 @@ def stem_text(text):
         str: Stemmed text.
     """
     return NepaliStemmer().stem_text(text)
+
+
+class SnowballStemmer:
+    """
+    Wrapper around the Snowball stemmer for Nepali.
+
+    Uses the snowballstemmer library which provides a well-tested
+    rule-based stemmer for Nepali. This is an alternative to the
+    built-in NepaliStemmer that may provide better accuracy for
+    some use cases.
+
+    Args:
+        ignore_stopwords (bool): Whether to ignore stopwords. Default False.
+
+    Usage:
+        sb = SnowballStemmer()
+        sb.stem("नेपालमा")  # -> "नेपाल"
+    """
+
+    def __init__(self, ignore_stopwords=False):
+        try:
+            import snowballstemmer
+
+            self._stemmer = snowballstemmer.stemmer("nepali")
+            self._available = True
+        except ImportError:
+            self._available = False
+
+    @property
+    def available(self):
+        return self._available
+
+    def stem(self, word):
+        """
+        Stem a single word using Snowball algorithm.
+
+        Args:
+            word (str): A single Nepali word.
+
+        Returns:
+            str: The stemmed form.
+        """
+        if not self._available:
+            raise ImportError(
+                "snowballstemmer is required. Install with: pip install snowballstemmer"
+            )
+        if not word:
+            return word
+        result = self._stemmer.stemWord(word)
+        return result
+
+    def stem_words(self, words):
+        """
+        Stem a list of words using Snowball algorithm.
+
+        Args:
+            words (list): List of Nepali words.
+
+        Returns:
+            list: List of stemmed words.
+        """
+        if not self._available:
+            raise ImportError(
+                "snowballstemmer is required. Install with: pip install snowballstemmer"
+            )
+        if not words:
+            return []
+        return self._stemmer.stemWords(words)
+
+    def stem_text(self, text):
+        """
+        Stem all words in a text using Snowball algorithm.
+
+        Args:
+            text (str): Input Nepali text.
+
+        Returns:
+            str: Text with all words stemmed.
+        """
+        if not self._available:
+            raise ImportError(
+                "snowballstemmer is required. Install with: pip install snowballstemmer"
+            )
+        if not text:
+            return text
+        words = text.split()
+        return " ".join(self._stemmer.stemWords(words))
+
+
+def snowball_stem(word):
+    """
+    Convenience function to stem a word using Snowball algorithm.
+
+    Args:
+        word (str): A single Nepali word.
+
+    Returns:
+        str: The stemmed form.
+    """
+    return SnowballStemmer().stem(word)

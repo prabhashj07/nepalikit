@@ -8,8 +8,6 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-import string
-
 
 class Tokenizer:
     def __init__(self):
@@ -18,7 +16,11 @@ class Tokenizer:
 
     def sentence_tokenize(self, text):
         """
-        Tokenizes input text into sentences based on '।' character.
+        Tokenize text into sentences.
+
+        Splits on । ॥ ? ! while keeping punctuation attached to the
+        preceding sentence.  A boundary is only recognised when the
+        punctuation is followed by whitespace or end-of-string.
 
         Parameters:
         - text: str, input to tokenize into sentences.
@@ -26,30 +28,85 @@ class Tokenizer:
         Returns:
         - list of str: tokenized sentences.
         """
-        sentences = text.strip().split("।")
-        sentences = [
-            sentence.translate(str.maketrans("", "", string.punctuation))
-            for sentence in sentences
-        ]
-        return sentences
+        if not text:
+            return []
+        text = text.strip()
+        if not text:
+            return []
+
+        sentences = []
+        buf = ""
+        for i, ch in enumerate(text):
+            buf += ch
+            if ch in ("।", "॥", "?", "!"):
+                nxt = text[i + 1] if i + 1 < len(text) else None
+                if nxt is None or nxt.isspace():
+                    sentences.append(buf.strip())
+                    buf = ""
+        if buf.strip():
+            sentences.append(buf.strip())
+        return [s for s in sentences if s]
 
     def word_tokenize(self, sentence, new_punctuation=None):
         """
-        Tokenizes input sentence into words, handling specified punctuation.
+        Tokenize a sentence into words.
+
+        Splits on whitespace and both Devanagari and Latin punctuation.
+        Punctuation characters are dropped from the output.
 
         Parameters:
         - sentence: str, input sentence to tokenize into words.
-        - new_punctuation: list, additional punctuation to consider for word tokenization.
+        - new_punctuation: list, additional punctuation to consider.
 
         Returns:
         - list of str: tokenized words.
         """
-        punctuations = ["।", ",", ";", "?", "!", "—", "-"]
+        if not sentence:
+            return []
+
+        punctuations = [
+            "।",
+            "॥",
+            ",",
+            ";",
+            ":",
+            "?",
+            "!",
+            "'",
+            "\u2018",
+            "\u2019",
+            '"',
+            "\u201c",
+            "\u201d",
+            "(",
+            ")",
+            "[",
+            "]",
+            "{",
+            "}",
+            "/",
+            "\\",
+            "|",
+            "<",
+            ">",
+            "—",
+            "–",
+            "-",
+            "\u2010",
+            "\u2011",
+            "\u2012",
+            "\u2013",
+            "\u2014",
+            "\u2015",
+            ".",
+            "\u0964",
+            "\u0965",
+        ]
         if new_punctuation:
             punctuations.extend(new_punctuation)
 
         for punct in punctuations:
-            sentence = " ".join(sentence.split(punct))
+            sentence = sentence.replace(punct, " ")
 
         return sentence.split()
 

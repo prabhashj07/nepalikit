@@ -28,7 +28,7 @@ class TestSentenceTokenize:
 
     def test_empty_string(self, tokenizer):
         result = tokenizer.sentence_tokenize("")
-        assert result == [""]
+        assert result == []
 
     def test_no_devanagari_danda(self, tokenizer):
         result = tokenizer.sentence_tokenize("नमस्ते कस्तो छ")
