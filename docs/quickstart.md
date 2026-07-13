@@ -29,9 +29,14 @@ print(clean)
 ## Stemming
 
 ```python
-from nepalikit.stemmer import stem
+from nepalikit.stemmer import stem, snowball_stem
 
+# Built-in stemmer
 root = stem("नेपालमा")
+print(root)  # "नेपाल"
+
+# Snowball stemmer (requires: pip install snowballstemmer)
+root = snowball_stem("नेपालमा")
 print(root)  # "नेपाल"
 ```
 
@@ -105,6 +110,16 @@ print(devanagari)  # "मेरो नाम राम हो"
 # Devanagari to Roman
 roman = devanagari_to_roman("मेरो नाम राम हो")
 print(roman)  # "mero naam raam ho"
+```
+
+## Preeti to Unicode
+
+```python
+from nepalikit.transliterate import preeti_to_unicode
+
+# Convert Preeti font text to Unicode Devanagari
+unicode_text = preeti_to_unicode("s{sf")
+print(unicode_text)  # "नेपाल"
 ```
 
 ## Complete Example

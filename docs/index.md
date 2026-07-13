@@ -8,12 +8,13 @@ NepaliKit provides essential tools for processing Nepali text, including:
 
 - **Tokenization** (Rule-based & SentencePiece)
 - **Text Preprocessing** (Cleaning, normalization)
-- **Stemming** (Rule-based suffix stripping)
+- **Stemming** (Rule-based + Snowball wrapper)
 - **Part-of-Speech Tagging** (11 grammatical categories)
 - **Spell Checking** (Dictionary-based with suggestions)
-- **Transliteration** (Roman &harr; Devanagari)
+- **Transliteration** (Roman ↔ Devanagari + Preeti converter)
 - **Number Extraction** (Parse Nepali numbers)
-- **Script Detection** (Devanagari, Latin, mixed)
+- **Normalization** (Unicode, ZWNJ stripping, script detection)
+- **Sentence Operations** (Extraction, analysis, abbreviations)
 - **Stopword Management** (340+ curated words)
 
 ## Quick Links
@@ -31,12 +32,13 @@ NepaliKit provides essential tools for processing Nepali text, including:
 |---------|-------------|
 | **Tokenization** | Rule-based & SentencePiece tokenizers |
 | **Preprocessing** | HTML removal, special chars cleaning |
-| **Stemming** | Rule-based suffix stripping |
+| **Normalization** | Unicode, ZWNJ/ZWJ stripping, script detection |
+| **Stemming** | Rule-based + Snowball stemmer wrapper |
 | **POS Tagging** | 11 grammatical categories |
 | **Spell Checker** | Dictionary-based + edit distance |
-| **Transliteration** | Roman &harr; Devanagari |
+| **Transliteration** | Roman ↔ Devanagari + Preeti converter |
 | **Number Extraction** | Parse written-out Nepali numbers |
-| **Script Detection** | Devanagari, Latin, mixed, other |
+| **Sentence Ops** | Extract, segment, analyze, abbreviations |
 | **Stopwords** | 340+ curated words |
 
 ## Support
