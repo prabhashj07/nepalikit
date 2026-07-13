@@ -1,6 +1,5 @@
 # test/test_sentencepiece_tokenizer.py
 
-import os
 import pytest
 from nepalikit.tokenization import SentencePieceTokenizer, Tokenizer
 from nepalikit.sentence_operation import TextNormalizer

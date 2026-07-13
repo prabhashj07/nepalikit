@@ -8,36 +8,29 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-import os
+from pathlib import Path
 import sentencepiece as spm
 
-# Define paths and parameters
-data_dir = "./data"
-input_data = os.path.join(data_dir, "OSCAR Corpus Nepali", "ne.txt")
-model_prefix = "NepaliKit_sentencepiece"
-vocab_size = 10000
-model_type = "bpe"
 
-# Create a smaller subset of the data
-subset_data = os.path.join(data_dir, "OSCAR Corpus Nepali", "ne_subset.txt")
-num_lines = 100000  
+def train_model(input_path, model_prefix="NepaliKit_sentencepiece", vocab_size=10000, model_type="bpe"):
+    """
+    Train a SentencePiece model on the given input file.
 
-with open(input_data, 'r', encoding='utf-8') as infile, open(subset_data, 'w', encoding='utf-8') as outfile:
-    for _ in range(num_lines):
-        line = infile.readline()
-        if not line:
-            break
-        outfile.write(line)
+    Args:
+        input_path (str or Path): Path to the training text file.
+        model_prefix (str): Output model prefix.
+        vocab_size (int): Vocabulary size.
+        model_type (str): Model type ('bpe' or 'unigram').
+    """
+    input_path = Path(input_path)
+    if not input_path.exists():
+        raise FileNotFoundError(f"Input file not found: {input_path}")
 
-# Train SentencePiece model on the subset
-spm.SentencePieceTrainer.train(
-    input=subset_data,
-    model_prefix=model_prefix,
-    vocab_size=vocab_size,
-    model_type=model_type,
-    num_threads=8
-)
-
-# Print confirmation
-print(f"SentencePiece model trained successfully and saved as {model_prefix}.model")
-
+    spm.SentencePieceTrainer.train(
+        input=str(input_path),
+        model_prefix=model_prefix,
+        vocab_size=vocab_size,
+        model_type=model_type,
+        num_threads=8,
+    )
+    print(f"SentencePiece model trained successfully and saved as {model_prefix}.model")

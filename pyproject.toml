@@ -23,7 +23,7 @@ classifiers = [
     "Topic :: Text Processing :: Linguistic",
 ]
 dependencies = [
-    "sentencepiece==0.2.0",
+    "sentencepiece>=0.2.0,<1.0",
 ]
 
 [project.optional-dependencies]

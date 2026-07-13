@@ -8,8 +8,6 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-from collections import Counter
-
 class NepaliTextProcessor:
     """
     A class for processing Nepali text, including merging and splitting text,

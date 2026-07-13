@@ -19,10 +19,13 @@ from nepalikit.manage_stopwords import (
     load_stopwords, remove_stopwords_from_text,
     get_stopwords, is_stopword, add_stopwords, remove_custom_stopwords,
 )
-from nepalikit.preprocessing import *
-from nepalikit.tokenization import *
-from nepalikit.utils import *
-from nepalikit.sentence_operation import *
+from nepalikit.preprocessing import TextProcessor, urls_emails
+from nepalikit.tokenization import Tokenizer, SentencePieceTokenizer
+from nepalikit.utils import NepaliTextProcessor
+from nepalikit.sentence_operation import (
+    extract_sentences, load_abbreviations, TextNormalizer,
+    AbbreviationReplacer, segment_sentences, SentenceAnalyzer,
+)
 
 from nepalikit.stemmer import NepaliStemmer, stem, stem_text
 from nepalikit.normalizer import NepaliNormalizer, normalize, detect_script

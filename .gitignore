@@ -1,30 +1,44 @@
-# Ignore python files 
-*.pyc
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.egg-info/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
 build/
 dist/
-*.py[cod]
+*.egg
+*.egg-info/
+.eggs/
 
-# Ignore virtual environment directories
+# Virtual environments
 env/
 venv/
 .myenv/
 .venv/
 
-# Ignore Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Ignore pytest cache
-.pytest_cache/
-
-# Ignore IDE specific files 
+# IDE
 .vscode/
 .idea/
 
-# Ignore any other unwanted files or directories
-*.log
-.DS_Store
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
 
-# Ignore replace_abbreviation.py file
-**/replace_abbreviation.py
+# Type checking
+.mypy_cache/
+.ruff_cache/
+
+# OS files
+.DS_Store
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# SentencePiece training data
+*.model
+*.vocab
+!nepalikit/tokenization/sentencepiece/model/*.model
+!nepalikit/tokenization/sentencepiece/model/*.vocab

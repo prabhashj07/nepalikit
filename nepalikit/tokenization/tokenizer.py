@@ -8,13 +8,12 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-import os
 import string
 
 class Tokenizer:
     def __init__(self):
-        """Initialize the Tokenizer class and the current directory of the file."""
-        self.this_dir = os.path.dirname(os.path.abspath(__file__))
+        """Initialize the Tokenizer class."""
+        pass
 
     def sentence_tokenize(self, text):
         """
@@ -144,6 +143,3 @@ class Tokenizer:
 
     def __str__(self):
         return "Tokenizer for Nepali language"
-
-if __name__ == "__main__":
-    tokenizer = Tokenizer()

@@ -1,7 +1,7 @@
 """
-__init__.py
+urls_emails.py
 
-Preprocessing functions for text processing in  NepaliKit package.
+Preprocessing functions for text processing in NepaliKit package.
 
 Author: Prabhash Kumar Jha
 Email: prabhashj07@gmail.com

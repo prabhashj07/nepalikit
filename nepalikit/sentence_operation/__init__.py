@@ -1,7 +1,7 @@
 """
-sentence_operations.py
+sentence_operation/__init__.py
 
-Functions for sentence operations in Nepali text.
+Sentence operation functions for Nepali text.
 
 Author: Prabhash Kumar Jha
 Email: prabhashj07@gmail.com

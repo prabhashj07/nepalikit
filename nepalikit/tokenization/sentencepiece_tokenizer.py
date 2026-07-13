@@ -37,6 +37,3 @@ class SentencePieceTokenizer:
         - original form: text, string
         """
         return self._sp.DecodePieces(tokens)
-
-if __name__ == "__main__":
-    tokenizer = SentencePieceTokenizer();

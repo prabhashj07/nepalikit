@@ -53,7 +53,6 @@ wheels = [
 
 [[package]]
 name = "nepalikit"
-version = "1.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "sentencepiece" },
@@ -68,7 +67,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0.0" },
-    { name = "sentencepiece", specifier = "==0.2.0" },
+    { name = "sentencepiece", specifier = ">=0.2.0,<1.0" },
 ]
 provides-extras = ["dev"]
 
