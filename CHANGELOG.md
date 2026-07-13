@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 1.1.1 (July 13, 2026)
+
+### Fixed
+- Removed phantom "Integration with PyTorch" feature from README (no PyTorch code exists in the project).
+- Fixed README stopword example: replaced non-existent `remove_stopword()` with correct `get_stopwords()`, `is_stopword()`, `remove_stopwords_from_text()`.
+- Fixed `docs/api/stopwords.md`: removed fake `NepaliStopwords` class that would cause `ImportError`.
+- Fixed `docs/api/segmentation.md`: corrected `extract_sentences()` constructor (requires `text` arg) and method name (`.extract_sentences()` not `.extract()`); fixed `SentenceAnalyzer.analyze()` to `.sentence_stats()`.
+- Added missing method docs to `docs/api/preprocessing.md`: `remove_stopwords()`, `normalize_text()`, `get_word_frequency()`.
+- Added missing `normalize_unicode()` method to `docs/api/normalizer.md`.
+- Created `docs/api/utils.md` for `NepaliTextProcessor` class.
+- Documented `dictionary_path` parameter for spell checker functions in `docs/api/spell_checker.md`.
+
+### Changed
+- Slimmed README from 185 lines to 66 lines: concise landing page with one quick example and link to full docs.
+
 ## Version 1.1.0 (January 8, 2026)
 
 ### Added

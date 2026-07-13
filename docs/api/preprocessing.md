@@ -86,3 +86,30 @@ Apply all preprocessing steps.
 - `text` (str): Input text
 
 **Returns:** Fully preprocessed text
+
+### `TextProcessor.remove_stopwords(text)`
+
+Remove stopwords from text using the processor's stopword list.
+
+**Parameters:**
+- `text` (str): Input text
+
+**Returns:** Text with stopwords removed
+
+### `TextProcessor.normalize_text(text)`
+
+Convert text to lowercase.
+
+**Parameters:**
+- `text` (str): Input text
+
+**Returns:** Lowercased text
+
+### `TextProcessor.get_word_frequency(tokens)`
+
+Count the frequency of each word in a list of tokens.
+
+**Parameters:**
+- `tokens` (list): List of token strings
+
+**Returns:** `Counter` object with word frequencies

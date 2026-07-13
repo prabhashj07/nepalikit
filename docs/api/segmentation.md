@@ -24,8 +24,8 @@ Extract sentences from text.
 ```python
 from nepalikit.sentence_operation import extract_sentences
 
-extractor = extract_sentences()
-sentences = extractor.extract("नमस्ते। के छ खबर?")
+extractor = extract_sentences("नमस्ते। के छ खबर?")
+sentences = extractor.extract_sentences()
 print(sentences)
 ```
 
@@ -63,8 +63,9 @@ Analyze sentence statistics.
 from nepalikit.sentence_operation import SentenceAnalyzer
 
 analyzer = SentenceAnalyzer()
-stats = analyzer.analyze("नमस्ते। के छ खबर?")
+stats = analyzer.sentence_stats("नमस्ते। के छ खबर?")
 print(stats)
+# {'char_count': 15, 'word_count': 4, 'stopword_count': 0, 'punctuation_count': 1}
 ```
 
 ## Methods

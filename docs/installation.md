@@ -29,7 +29,7 @@ pip install -e .
 
 ```python
 import nepalikit
-print(nepalikit.__version__)  # Should print 1.1.0
+print(nepalikit.__version__)  # Should print 1.1.1
 ```
 
 ## Troubleshooting

@@ -8,7 +8,7 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 
 from nepalikit.manage_stopwords import (
     load_stopwords, remove_stopwords_from_text,

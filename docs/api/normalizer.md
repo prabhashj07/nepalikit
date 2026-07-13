@@ -45,6 +45,10 @@ print(normalized)  # "म नाम"
 
 script = normalizer.detect_script("मेरो नाम")
 print(script)  # "devanagari"
+
+# Unicode-only normalization (no ZWNJ/control char stripping)
+uni_norm = normalizer.normalize_unicode("text")
+print(uni_norm)
 ```
 
 ## Methods
@@ -85,3 +89,13 @@ Remove Unicode control characters.
 - `text` (str): Input text
 
 **Returns:** Cleaned text
+
+### `NepaliNormalizer.normalize_unicode(text, form="NFC")`
+
+Apply Unicode normalization only (without ZWNJ stripping or control char cleanup).
+
+**Parameters:**
+- `text` (str): Input text
+- `form` (str): Normalization form ('NFC' or 'NFKC')
+
+**Returns:** Unicode-normalized text

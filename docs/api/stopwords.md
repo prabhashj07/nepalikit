@@ -75,15 +75,4 @@ stopwords = load_stopwords("/path/to/stopwords/")
 print(stopwords)
 ```
 
-## Classes
 
-### `NepaliStopwords`
-
-Advanced stopword management.
-
-```python
-from nepalikit.manage_stopwords import NepaliStopwords
-
-stopwords = NepaliStopwords()
-print(len(stopwords.get_stopwords()))
-```
