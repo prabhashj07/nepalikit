@@ -2,13 +2,13 @@
 
 ## Overview
 
-Character-level transliteration between Romanized and Devanagari Nepali.
+Character-level transliteration between Romanized and Devanagari Nepali, including Preeti font conversion.
 
 ## Functions
 
 ### `roman_to_devanagari(text)`
 
-Convert Romanized to Devanagari.
+Convert Romanized to Devanagari. Handles exception words (common proper nouns) automatically.
 
 ```python
 from nepalikit.transliterate import roman_to_devanagari
@@ -16,8 +16,11 @@ from nepalikit.transliterate import roman_to_devanagari
 roman_to_devanagari("mero naam ram ho")
 # "मेरो नाम राम हो"
 
-roman_to_devanagari("nepal")
-# "नेपाल"
+roman_to_devanagari("kathmandu")
+# "काठमाडौं"
+
+roman_to_devanagari("facebook")
+# "फेसबुक"
 ```
 
 ### `devanagari_to_roman(text)`
@@ -34,11 +37,21 @@ devanagari_to_roman("नेपाल")
 # "nepaal"
 ```
 
+### `preeti_to_unicode(text)`
+
+Convert Preeti font encoded text to Unicode Devanagari.
+
+```python
+from nepalikit.transliterate import preeti_to_unicode
+
+preeti_to_unicode("s{sf")  # "नेपाल"
+```
+
 ## Classes
 
 ### `NepaliTransliterator`
 
-Advanced transliteration with full mapping support.
+Advanced transliteration with full mapping support and exception words.
 
 ```python
 from nepalikit.transliterate import NepaliTransliterator
@@ -46,12 +59,24 @@ from nepalikit.transliterate import NepaliTransliterator
 trans = NepaliTransliterator()
 
 # Roman to Devanagari
-devanagari = trans.roman_to_devanagari("nepal")
-print(devanagari)  # "नेपाल"
+devanagari = trans.roman_to_devanagari("kathmandu")
+print(devanagari)  # "काठमाडौं"
 
 # Devanagari to Roman
 roman = trans.devanagari_to_roman("नेपाल")
 print(roman)  # "nepaal"
+```
+
+### `PreetiConverter`
+
+Convert Preeti font encoded text to Unicode Devanagari.
+
+```python
+from nepalikit.transliterate import PreetiConverter
+
+converter = PreetiConverter()
+unicode_text = converter.convert("s{sf")
+print(unicode_text)  # "नेपाल"
 ```
 
 ## Supported Characters
@@ -62,6 +87,14 @@ print(roman)  # "nepaal"
 - **Consonants**: k, kh, g, gh, ng, ch, chh, j, jh, ny, t, th, d, dh, n, p, ph, b, bh, m, y, r, l, v, w, s, h
 - **Ligatures**: ksha, tra, gya
 - **Numbers**: 0-9
+
+### Exception Words
+
+Common proper nouns are handled automatically:
+- **Cities**: kathmandu, patan, bhaktapur, pokhara, chitwan, dhulikhel, nagarkot, janakpur, biratnagar, nepalganj
+- **Common words**: namaste, dhanyabad, swagat
+- **Deities**: krishna, ganesh, ram, sita, guru
+- **Tech brands**: facebook, youtube, google, twitter, whatsapp, instagram
 
 ### Devanagari to Roman
 
@@ -88,3 +121,12 @@ Convert Devanagari text to Romanized.
 - `text` (str): Devanagari text
 
 **Returns:** Romanized text
+
+### `PreetiConverter.convert(text)`
+
+Convert Preeti-encoded text to Unicode Devanagari.
+
+**Parameters:**
+- `text` (str): Preeti-encoded text
+
+**Returns:** Unicode Devanagari text

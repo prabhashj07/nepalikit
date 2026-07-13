@@ -51,7 +51,7 @@ print(original)
 
 ### `Tokenizer.sentence_tokenize(text)`
 
-Tokenize text into sentences based on `।` character.
+Tokenize text into sentences. Splits on `।`/`॥`/`?`/`!` while keeping punctuation attached to the preceding sentence. A boundary is only recognized when the punctuation is followed by whitespace or end-of-string.
 
 **Parameters:**
 - `text` (str): Input text

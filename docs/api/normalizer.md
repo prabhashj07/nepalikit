@@ -30,6 +30,51 @@ detect_script("मेरो name ram")     # "mixed"
 detect_script("12345")              # "other"
 ```
 
+### `is_devanagari(text)`
+
+Check if text is purely Devanagari (ignoring whitespace/punctuation).
+
+```python
+from nepalikit.normalizer import is_devanagari
+
+is_devanagari("नेपाल")      # True
+is_devanagari("नेपाल a")    # False
+```
+
+### `contains_devanagari(text)`
+
+Check if text contains at least one Devanagari character.
+
+```python
+from nepalikit.normalizer import contains_devanagari
+
+contains_devanagari("Hello नमस्ते")  # True
+contains_devanagari("Hello")          # False
+```
+
+### `contains_latin(text)`
+
+Check if text contains at least one Latin character.
+
+```python
+from nepalikit.normalizer import contains_latin
+
+contains_latin("Hello नमस्ते")  # True
+contains_latin("नेपाल")          # False
+```
+
+### `mixed_script_ratio(text)`
+
+Compute Devanagari fraction over Devanagari + Latin characters.
+
+```python
+from nepalikit.normalizer import mixed_script_ratio
+
+mixed_script_ratio("नेपाल Hello")  # 0.5
+mixed_script_ratio("नेपाल")          # 1.0
+mixed_script_ratio("Hello")          # 0.0
+```
+
 ## Classes
 
 ### `NepaliNormalizer`
@@ -46,9 +91,11 @@ print(normalized)  # "म नाम"
 script = normalizer.detect_script("मेरो नाम")
 print(script)  # "devanagari"
 
-# Unicode-only normalization (no ZWNJ/control char stripping)
-uni_norm = normalizer.normalize_unicode("text")
-print(uni_norm)
+# Check if text is purely Devanagari
+normalizer.is_devanagari("नेपाल")  # True
+
+# Get Devanagari fraction
+normalizer.mixed_script_ratio("नेपाल Hello")  # 0.5
 ```
 
 ## Methods
@@ -71,6 +118,42 @@ Detect the script of text.
 - `text` (str): Input text
 
 **Returns:** 'devanagari', 'latin', 'mixed', or 'other'
+
+### `NepaliNormalizer.is_devanagari(text)`
+
+Check if every non-whitespace, non-punctuation character is Devanagari.
+
+**Parameters:**
+- `text` (str): Input text
+
+**Returns:** bool
+
+### `NepaliNormalizer.contains_devanagari(text)`
+
+Check if text contains at least one Devanagari character.
+
+**Parameters:**
+- `text` (str): Input text
+
+**Returns:** bool
+
+### `NepaliNormalizer.contains_latin(text)`
+
+Check if text contains at least one Latin character.
+
+**Parameters:**
+- `text` (str): Input text
+
+**Returns:** bool
+
+### `NepaliNormalizer.mixed_script_ratio(text)`
+
+Compute Devanagari fraction over Devanagari + Latin characters.
+
+**Parameters:**
+- `text` (str): Input text
+
+**Returns:** float (0.0 to 1.0)
 
 ### `NepaliNormalizer.strip_zwnj(text)`
 
