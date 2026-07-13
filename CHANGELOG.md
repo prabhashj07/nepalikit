@@ -2,22 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Version 1.1.1 (July 13, 2026)
-
-### Fixed
-- Removed phantom "Integration with PyTorch" feature from README (no PyTorch code exists in the project).
-- Fixed README stopword example: replaced non-existent `remove_stopword()` with correct `get_stopwords()`, `is_stopword()`, `remove_stopwords_from_text()`.
-- Fixed `docs/api/stopwords.md`: removed fake `NepaliStopwords` class that would cause `ImportError`.
-- Fixed `docs/api/segmentation.md`: corrected `extract_sentences()` constructor (requires `text` arg) and method name (`.extract_sentences()` not `.extract()`); fixed `SentenceAnalyzer.analyze()` to `.sentence_stats()`.
-- Added missing method docs to `docs/api/preprocessing.md`: `remove_stopwords()`, `normalize_text()`, `get_word_frequency()`.
-- Added missing `normalize_unicode()` method to `docs/api/normalizer.md`.
-- Created `docs/api/utils.md` for `NepaliTextProcessor` class.
-- Documented `dictionary_path` parameter for spell checker functions in `docs/api/spell_checker.md`.
-
-### Changed
-- Slimmed README from 185 lines to 66 lines: concise landing page with one quick example and link to full docs.
-
-## Version 1.1.0 (January 8, 2026)
+## Version 1.0.4 (July 13, 2026)
 
 ### Added
 - **Stemmer**: Rule-based stemming for Nepali words. Strips common suffixes (case markers, possessives, plurals, verb endings) to reduce words to root forms. (`NepaliStemmer`, `stem()`, `stem_text()`)
@@ -26,29 +11,32 @@ All notable changes to this project will be documented in this file.
 - **POS Tagger**: Dictionary-based part-of-speech tagger with rule-based fallback for unknown words. Supports 11 grammatical categories. (`NepaliPOSTagger`, `tag_pos()`)
 - **Spell Checker**: Dictionary-based spell checking with Levenshtein edit distance for generating correction suggestions. (`NepaliSpellChecker`, `check_spelling()`, `suggest_corrections()`)
 - **Transliteration**: Character-level Roman to Devanagari and Devanagari to Roman conversion. (`NepaliTransliterator`, `roman_to_devanagari()`, `devanagari_to_roman()`)
-- **Enhanced Stopwords**: Expanded stopword list to 340+ curated Nepali stopwords in `nepalikit/data/stopwords.txt`. Added `get_stopwords()`, `is_stopword()`, `add_stopwords()`, and `remove_custom_stopwords()` convenience functions. Based on community resources and Nepali grammar references.
-- **Enhanced Stemmer**: Expanded suffix rules with perfect-aspect forms (`ेको`/`ेका`/`एको`), composite plurals (`हरूसँग`/`हरूसम्म`/`हरूकोलागि`), additional postpositions (`सँग`/`लागि`/`तिर`), and common verb forms (`गर्छ`/`गर्छन्`/`रहेको`/`भएको`). Suffix list now covers more morphological patterns based on Nepali grammar research.
-- **Enhanced Number Extractor**: Added 0–99 number words (was 0–90), decimal scale support (`२.५ लाख` = 250000), Indian-style comma handling (`१,२३,४५६`), larger multipliers (`खर्ब`), and improved compound expression parsing.
+- **Enhanced Stopwords**: Expanded stopword list to 340+ curated Nepali stopwords in `nepalikit/data/stopwords.txt`. Added `get_stopwords()`, `is_stopword()`, `add_stopwords()`, and `remove_custom_stopwords()` convenience functions.
+- **Enhanced Stemmer**: Expanded suffix rules with perfect-aspect forms, composite plurals, additional postpositions, and common verb forms.
+- **Enhanced Number Extractor**: Added 0–99 number words, decimal scale support, Indian-style comma handling, larger multipliers, and improved compound expression parsing.
 - **POS Dictionary**: Bundled POS dictionary for common Nepali words in `nepalikit/data/pos_dictionary.json`.
 - **Spelling Dictionary**: Bundled word dictionary for spell checking in `nepalikit/data/spelling_dict.txt`.
 - **Stemmer Rules**: Configurable suffix stripping rules in `nepalikit/data/stemmer_rules.json`.
-- **86 new tests** across 6 test files (124 total, up from 38).
 
 ### Fixed
-- **Number Extractor**: `_word_to_int` now correctly returns `0` for शून्य.
-- **Stemmer**: Removed typo `'माp'` from fallback suffixes; added `None` guards to `stem_text()` and `stem_words()`.
-- **Normalizer**: Added `None` guards to `strip_zwnj()` and `strip_control_chars()`; removed unused compiled regex.
-- **POS Tagger**: Fixed `_is_proper_noun()` (removed broken `istitle()` for Devanagari); fixed overlapping words between CONJUNCTIONS and PARTICLES; removed `'को'` from PRONOUNS.
-- **Spell Checker**: Removed unused imports (`os`, `defaultdict`).
-- **Stemmer**: Removed unused import (`os`).
-- **Stopwords**: Deduplicated stopword list and expanded from 191 to 340+ unique entries via community contributions.
-- **Transliteration**: Removed consonant+`a` dictionary entries to fix vowel composition; all consonant+vowel pairs now compose correctly via virama-based lookup. Fixed dental/retroflex collision in `devanagari_to_roman` using IAST diacritics.
+- Replaced wildcard imports with explicit imports across the codebase.
+- Removed unused imports (`os`, `load_abbreviations`, `Counter`).
+- Simplified dead branching logic in `AbbreviationReplacer._generate_pattern()`.
+- Removed `__main__` blocks from library files.
+- Fixed hardcoded `./data` path in `train.py` — now accepts `input_path` argument.
+- Replaced broad `except Exception` with specific `FileNotFoundError` in `load_abbreviation.py`.
+- Fixed wrong docstring filenames in `sentence_operation` and `urls_emails`.
+- Removed phantom "Integration with PyTorch" feature from README.
+- Fixed README stopword example: replaced non-existent `remove_stopword()` with correct methods.
+- Fixed `docs/api/stopwords.md`, `segmentation.md`, `preprocessing.md`, `normalizer.md`.
+- Slimmed README from 185 lines to 66 lines.
 
 ### Changed
-- Updated `__version__` to `"1.1.0"`.
-- Updated `pyproject.toml` version to `1.1.0` and added new data files to `package-data`.
-- All new modules are zero-dependency (Python stdlib only, no new pip packages required).
-- Added 11 new tests across 3 test files (144 total, up from 38).
+- Migrated to `setuptools-scm` for dynamic versioning from git tags — no more manual version bumps.
+- Loosened `sentencepiece` dependency from `==0.2.0` to `>=0.2.0,<1.0`.
+- Added auto GitHub Release creation on tag push via CI.
+- All new modules are zero-dependency (Python stdlib only).
+- 151 tests passing.
 
 ## Version 1.0.3 (January 8, 2026)
 
