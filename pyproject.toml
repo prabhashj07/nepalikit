@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=64.0.0"]
+requires = ["setuptools>=64.0.0", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "nepalikit"
-version = "1.1.1"
+dynamic = ["version"]
 description = "A Nepali language processing library"
 readme = "README.md"
 license = "MIT"
@@ -26,6 +26,11 @@ dependencies = [
     "sentencepiece==0.2.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
 [project.urls]
 Homepage = "https://github.com/prabhashj07/nepalikit"
 Repository = "https://github.com/prabhashj07/nepalikit"
@@ -44,10 +49,7 @@ nepalikit = [
     "data/spelling_dict.txt",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0.0",
-]
+[tool.setuptools_scm]
 
 [tool.pytest.ini_options]
 testpaths = ["test"]
