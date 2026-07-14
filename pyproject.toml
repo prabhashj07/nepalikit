@@ -55,6 +55,7 @@ nepalikit = [
     "data/stopwords.txt",
     "data/stemmer_rules.json",
     "data/pos_dictionary.json",
+    "data/pos_ngram_model.json",
     "data/spelling_dict.txt",
     "data/lemma_dictionary.json",
 ]

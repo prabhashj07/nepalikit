@@ -2,28 +2,19 @@
 
 This document outlines planned features for NepaliKit releases.
 
-## v1.0.5: Lemmatizer
+## v1.0.5: Lemmatizer ✅ Completed
 
 ### Dictionary-based Lemmatizer
-**Priority:** High
-**Gap:** Current stemming is suffix-strip only. No dictionary-based lemmatization.
+**Status:** Released (July 14, 2026)
 
-**Implementation:**
-- Create `nepalikit.lemmatizer` module
-- Dictionary-based lemma lookup + rule fallback
-- Optional: wrap `transformers` for neural lemmatizer
+Dictionary-based lemma lookup with rule-based fallback. 340+ dictionary entries, morphological rules for common Nepali suffixes.
 
-## v1.0.6: ML POS Tagger
+## v1.0.6: ML POS Tagger ✅ Completed
 
 ### ML-based POS Tagger
-**Priority:** High
-**Gap:** Current POS is dictionary-only. No trained model.
+**Status:** Released (July 14, 2026)
 
-**Implementation:**
-- Create `nepalikit.pos_tagger.ml` module
-- Optional `torch`/`transformers` dependency
-- Bundle a pre-trained BiLSTM-CRF model
-- Fallback to dictionary tagger when torch unavailable
+Context-aware POS tagger using n-gram statistics and Viterbi decoding. Bigram transition model, emission probabilities, suffix rules, and context pattern boosting. Zero-dependency pure Python implementation.
 
 ## v1.0.7: Named Entity Recognition
 
@@ -112,8 +103,8 @@ This document outlines planned features for NepaliKit releases.
 
 | Version | Feature | Priority | Status |
 |---------|---------|----------|--------|
-| 1.0.5 | Lemmatizer | High | Planned |
-| 1.0.6 | ML POS Tagger | High | Planned |
+| 1.0.5 | Lemmatizer | High | ✅ Completed |
+| 1.0.6 | ML POS Tagger | High | ✅ Completed |
 | 1.0.7 | Named Entity Recognition | High | Planned |
 | 1.0.8 | Word Embeddings | Medium | Planned |
 | 1.0.9 | Translation | Medium | Planned |
@@ -127,11 +118,10 @@ This document outlines planned features for NepaliKit releases.
 
 We welcome contributions for these features!
 
-1. **Lemmatizer**: Build dictionary + rule hybrid
-2. **ML POS/NER**: Train models, create lazy-loading wrappers
-3. **Embeddings**: Create fastText/Word2Vec loaders
-4. **Translation**: Wrap translation APIs/models
-5. **Datasets**: Add download helpers for public datasets
+1. **NER**: Build transformer-based NER with lazy loading
+2. **Embeddings**: Create fastText/Word2Vec loaders
+3. **Translation**: Wrap translation APIs/models
+4. **Datasets**: Add download helpers for public datasets
 
 **Guidelines:**
 - Use lazy imports (`try/except ImportError`)

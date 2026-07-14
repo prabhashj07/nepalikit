@@ -37,7 +37,13 @@ from nepalikit.number_extractor import (
     convert_number,
     extract_numbers,
 )
-from nepalikit.pos_tagger import NepaliPOSTagger, tag_pos
+from nepalikit.pos_tagger import (
+    NepaliPOSTagger,
+    MLPOSTagger,
+    ml_tag_pos,
+    ml_tag_text,
+    tag_pos,
+)
 from nepalikit.preprocessing import TextProcessor, urls_emails
 from nepalikit.sentence_operation import (
     AbbreviationReplacer,
@@ -104,6 +110,9 @@ __all__ = [
     "extract_numbers",
     "convert_number",
     "NepaliPOSTagger",
+    "MLPOSTagger",
+    "ml_tag_pos",
+    "ml_tag_text",
     "tag_pos",
     "NepaliSpellChecker",
     "check_spelling",

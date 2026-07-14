@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 ### Added
+- **ML POS Tagger**: Context-aware POS tagger using n-gram statistics and Viterbi decoding. Bigram transition model, emission probabilities, suffix rules, and context pattern boosting. Zero-dependency pure Python implementation. (`MLPOSTagger`, `ml_tag_pos()`, `ml_tag_text()`)
 - **Stemmer**: Rule-based stemming for Nepali words. Strips common suffixes (case markers, possessives, plurals, verb endings) to reduce words to root forms. (`NepaliStemmer`, `stem()`, `stem_text()`)
 - **Normalizer**: Unicode normalization, ZWNJ/ZWJ stripping, control character cleanup, and script detection (devanagari/latin/mixed). (`NepaliNormalizer`, `normalize()`, `detect_script()`)
 - **Number Extractor**: Parse and convert Nepali numeric expressions including Devanagari digits (०-९) and number words (एक, दुई, सय, हजार, लाख, करोड). (`NepaliNumberExtractor`, `extract_numbers()`, `convert_number()`)
