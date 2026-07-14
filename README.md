@@ -42,8 +42,9 @@ filtered = remove_stopwords_from_text("म घर जाँदै छु")
 - **Normalization** — Unicode NFC normalization, ZWNJ/ZWJ stripping, script detection
 - **POS Tagging** — Dictionary-based tagger with 11 grammatical categories
 - **Spell Checking** — Dictionary-based with Levenshtein edit distance suggestions
-- **Transliteration** — Roman &harr; Devanagari conversion
+- **Transliteration** — Roman ↔ Devanagari + Preeti font conversion
 - **Number Extraction** — Parse Devanagari digits and Nepali number words to integers
+- **Sentence Operations** — Sentence segmentation, extraction, and analysis
 
 ## Documentation
 
