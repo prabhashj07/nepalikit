@@ -59,6 +59,7 @@ nav:
       - Preprocessing: usage/preprocessing.md
       - Normalization: usage/normalization.md
       - Stemming: usage/stemming.md
+      - Lemmatization: usage/lemmatization.md
       - POS Tagging: usage/pos_tagging.md
       - Spell Checking: usage/spell_checking.md
       - Transliteration: usage/transliteration.md
@@ -77,6 +78,7 @@ nav:
       - Preprocessing: api/preprocessing.md
       - Normalization: api/normalizer.md
       - Stemming: api/stemmer.md
+      - Lemmatizer: api/lemmatizer.md
       - POS Tagging: api/pos_tagger.md
       - Spell Checking: api/spell_checker.md
       - Transliteration: api/transliteration.md

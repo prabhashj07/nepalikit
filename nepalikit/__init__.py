@@ -59,6 +59,7 @@ from nepalikit.stemmer import (
     stem,
     stem_text,
 )
+from nepalikit.lemmatizer import NepaliLemmatizer, lemmatize, lemmatize_text
 from nepalikit.tokenization import SentencePieceTokenizer, Tokenizer
 from nepalikit.transliterate import (
     NepaliTransliterator,
@@ -112,4 +113,7 @@ __all__ = [
     "devanagari_to_roman",
     "PreetiConverter",
     "preeti_to_unicode",
+    "NepaliLemmatizer",
+    "lemmatize",
+    "lemmatize_text",
 ]
