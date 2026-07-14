@@ -31,7 +31,7 @@ class NepaliStemmer:
         pkg = resources.files("nepalikit")
         rules_path = str(pkg.joinpath("data", "stemmer_rules.json"))
         try:
-            with open(rules_path, "r", encoding="utf-8") as f:
+            with open(rules_path, encoding="utf-8") as f:
                 rules = json.load(f)
             self.suffixes = rules.get("suffixes", [])
         except (FileNotFoundError, json.JSONDecodeError):
@@ -236,9 +236,7 @@ class SnowballStemmer:
             str: The stemmed form.
         """
         if not self._available:
-            raise ImportError(
-                "snowballstemmer is required. Install with: pip install snowballstemmer"
-            )
+            raise ImportError("snowballstemmer is required. Install with: pip install snowballstemmer")
         if not word:
             return word
         result = self._stemmer.stemWord(word)
@@ -255,9 +253,7 @@ class SnowballStemmer:
             list: List of stemmed words.
         """
         if not self._available:
-            raise ImportError(
-                "snowballstemmer is required. Install with: pip install snowballstemmer"
-            )
+            raise ImportError("snowballstemmer is required. Install with: pip install snowballstemmer")
         if not words:
             return []
         return self._stemmer.stemWords(words)
@@ -273,9 +269,7 @@ class SnowballStemmer:
             str: Text with all words stemmed.
         """
         if not self._available:
-            raise ImportError(
-                "snowballstemmer is required. Install with: pip install snowballstemmer"
-            )
+            raise ImportError("snowballstemmer is required. Install with: pip install snowballstemmer")
         if not text:
             return text
         words = text.split()

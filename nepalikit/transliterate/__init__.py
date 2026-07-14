@@ -9,12 +9,12 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
+from nepalikit.transliterate.preeti import PreetiConverter, preeti_to_unicode
 from nepalikit.transliterate.transliterate import (
     NepaliTransliterator,
-    roman_to_devanagari,
     devanagari_to_roman,
+    roman_to_devanagari,
 )
-from nepalikit.transliterate.preeti import PreetiConverter, preeti_to_unicode
 
 __all__ = [
     "NepaliTransliterator",

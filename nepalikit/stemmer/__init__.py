@@ -11,10 +11,10 @@ Date: July 2024
 
 from nepalikit.stemmer.stemmer import (
     NepaliStemmer,
-    stem,
-    stem_text,
     SnowballStemmer,
     snowball_stem,
+    stem,
+    stem_text,
 )
 
 __all__ = [

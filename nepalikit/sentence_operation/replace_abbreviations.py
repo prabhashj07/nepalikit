@@ -50,6 +50,4 @@ class AbbreviationReplacer:
         """
         if not self.pattern:
             return text
-        return re.sub(
-            self.pattern, self._replace_match, text, flags=re.UNICODE | re.IGNORECASE
-        )
+        return re.sub(self.pattern, self._replace_match, text, flags=re.UNICODE | re.IGNORECASE)

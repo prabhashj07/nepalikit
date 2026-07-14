@@ -141,9 +141,7 @@ class Tokenizer:
         elif level in ("character", "characters"):
             return self.character_tokenize(text)
         else:
-            raise ValueError(
-                "Unsupported tokenization level. Choose from 'sentence', 'word', 'character'."
-            )
+            raise ValueError("Unsupported tokenization level. Choose from 'sentence', 'word', 'character'.")
 
     def sentence_detokenize(self, sentences):
         """
@@ -201,9 +199,7 @@ class Tokenizer:
         elif level == "character":
             return "".join(tokens)
         else:
-            raise ValueError(
-                "Unsupported detokenization level. Choose from 'sentence', 'word', 'character'."
-            )
+            raise ValueError("Unsupported detokenization level. Choose from 'sentence', 'word', 'character'.")
 
     def __str__(self):
         return "Tokenizer for Nepali language"

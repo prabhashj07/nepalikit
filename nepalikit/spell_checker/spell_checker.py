@@ -40,7 +40,7 @@ class NepaliSpellChecker:
     def _load_dictionary(self, path):
         """Load words from a dictionary file."""
         try:
-            with open(path, "r", encoding="utf-8") as f:
+            with open(path, encoding="utf-8") as f:
                 for line in f:
                     word = line.strip()
                     if word:
@@ -106,9 +106,7 @@ class NepaliSpellChecker:
         for word in words:
             clean = re.sub(r"[।,;?!—\-]", "", word)
             if clean and not self.check(clean):
-                suggestions = self.suggest(
-                    clean, max_distance=max_distance, max_suggestions=2
-                )
+                suggestions = self.suggest(clean, max_distance=max_distance, max_suggestions=2)
                 if len(suggestions) == 1:
                     corrected.append(word.replace(clean, suggestions[0]))
                 else:

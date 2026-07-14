@@ -10,12 +10,12 @@ Date: July 2024
 
 from nepalikit.normalizer.normalizer import (
     NepaliNormalizer,
-    normalize,
-    detect_script,
-    is_devanagari,
     contains_devanagari,
     contains_latin,
+    detect_script,
+    is_devanagari,
     mixed_script_ratio,
+    normalize,
 )
 
 __all__ = [

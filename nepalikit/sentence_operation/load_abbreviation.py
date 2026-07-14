@@ -26,7 +26,7 @@ def load_abbreviations(folder_path):
         return abbreviations
     file_path = os.path.join(folder_path, "abbreviation.txt")
     try:
-        with open(file_path, "r", encoding="utf-8") as file:
+        with open(file_path, encoding="utf-8") as file:
             for line in file:
                 if ":" in line:
                     key, value = line.strip().split(":", 1)

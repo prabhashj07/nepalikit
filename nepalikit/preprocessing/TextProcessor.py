@@ -10,6 +10,7 @@ Date: July 2024
 
 import re
 from collections import Counter
+
 from nepalikit.preprocessing.urls_emails import urls_emails
 
 
@@ -47,9 +48,7 @@ class TextProcessor:
     def remove_stopwords(self, text):
         """Remove stopwords from text using the configured stopword list."""
         tokens = text.split()
-        filtered_tokens = [
-            word for word in tokens if word.lower() not in self.stopwords
-        ]
+        filtered_tokens = [word for word in tokens if word.lower() not in self.stopwords]
         return " ".join(filtered_tokens)
 
     def normalize_text(self, text):

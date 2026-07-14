@@ -179,13 +179,8 @@ class NepaliNumberExtractor:
             if value is not None:
                 results.append((expr, value))
 
-        multipliers_re = "|".join(
-            re.escape(w) for w in sorted(self.MULTIPLIERS.keys(), key=len, reverse=True)
-        )
-        word_values_re = "|".join(
-            re.escape(w)
-            for w in sorted(self.NUMBER_WORDS.keys(), key=len, reverse=True)
-        )
+        multipliers_re = "|".join(re.escape(w) for w in sorted(self.MULTIPLIERS.keys(), key=len, reverse=True))
+        word_values_re = "|".join(re.escape(w) for w in sorted(self.NUMBER_WORDS.keys(), key=len, reverse=True))
         compound_pattern = (
             r"(?:[०-९]+(?:\.[०-९]+)?"
             r"|" + word_values_re + r")"
@@ -206,9 +201,7 @@ class NepaliNumberExtractor:
         non_standalone = set(self.MULTIPLIERS.keys()) | {
             "छ",  # ambiguous: number 6 or auxiliary verb
         }
-        standalone_re = "|".join(
-            re.escape(w) for w in standalone_words if w not in non_standalone
-        )
+        standalone_re = "|".join(re.escape(w) for w in standalone_words if w not in non_standalone)
         if standalone_re:
             for match in re.finditer(r"\b(" + standalone_re + r")\b", text):
                 expr = match.group()

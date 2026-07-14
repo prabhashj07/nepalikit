@@ -44,6 +44,4 @@ def train_model(
         model_type=model_type,
         num_threads=8,
     )
-    logger.info(
-        "SentencePiece model trained successfully and saved as %s.model", model_prefix
-    )
+    logger.info("SentencePiece model trained successfully and saved as %s.model", model_prefix)

@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Version 1.0.4 (July 13, 2026)
+## Unreleased
 
 ### Added
 - **Stemmer**: Rule-based stemming for Nepali words. Strips common suffixes (case markers, possessives, plurals, verb endings) to reduce words to root forms. (`NepaliStemmer`, `stem()`, `stem_text()`)
@@ -36,7 +36,10 @@ All notable changes to this project will be documented in this file.
 - Loosened `sentencepiece` dependency from `==0.2.0` to `>=0.2.0,<1.0`.
 - Added auto GitHub Release creation on tag push via CI.
 - All new modules are zero-dependency (Python stdlib only).
-- 151 tests passing.
+- Improved CI/CD: added Python 3.13, uv caching, ruff format check, mypy type checking, pytest-cov, pip-audit security scanning.
+- Added Dependabot for GitHub Actions and pip dependency updates.
+- Added pre-commit hooks (trailing whitespace, ruff lint/format, mypy).
+- Fixed type annotations for mypy compatibility.
 
 ## Version 1.0.3 (January 8, 2026)
 

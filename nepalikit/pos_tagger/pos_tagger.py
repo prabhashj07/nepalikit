@@ -200,7 +200,7 @@ class NepaliPOSTagger:
         dict_path = str(pkg.joinpath("data", "pos_dictionary.json"))
         self.dictionary = {}
         try:
-            with open(dict_path, "r", encoding="utf-8") as f:
+            with open(dict_path, encoding="utf-8") as f:
                 self.dictionary = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             pass

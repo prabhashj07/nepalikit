@@ -2,9 +2,9 @@
 
 This document outlines planned features for NepaliKit releases.
 
-## Recently Completed (v1.0.4)
+## Recently Completed (Unreleased)
 
-These features are available now:
+These features are available on `main` but not yet released:
 
 - Snowball stemmer wrapper
 - Preeti-to-Unicode converter
@@ -146,4 +146,4 @@ We welcome contributions for these features!
 
 ---
 
-**Last Updated:** July 2026
+**Last Updated:** July 2026 (Unreleased)

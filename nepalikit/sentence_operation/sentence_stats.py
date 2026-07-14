@@ -8,8 +8,6 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-from typing import Dict
-
 from nepalikit.manage_stopwords import get_stopwords
 from nepalikit.tokenization.tokenizer import Tokenizer
 
@@ -31,7 +29,7 @@ class SentenceAnalyzer:
         self.tokenizer = Tokenizer()
         self.stopwords = get_stopwords()
 
-    def sentence_stats(self, sentence: str) -> Dict[str, int]:
+    def sentence_stats(self, sentence: str) -> dict[str, int]:
         """Compute statistics for a given sentence.
 
         Args:

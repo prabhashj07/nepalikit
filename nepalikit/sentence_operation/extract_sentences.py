@@ -9,6 +9,7 @@ Date: July 2024
 """
 
 import re
+
 from nepalikit.preprocessing.TextProcessor import TextProcessor
 
 
@@ -52,7 +53,7 @@ class extract_sentences:
         str: The normalized text.
         """
         # Assuming TextProcessor has a method `normalize` for normalization
-        normalized_text = self.processor.normalize_text(self.text)
+        normalized_text: str = self.processor.normalize_text(self.text)
         return normalized_text
 
     def preprocess_text(self, normalized_text: str) -> str:
@@ -66,7 +67,7 @@ class extract_sentences:
         Returns:
         str: The preprocessed text.
         """
-        cleaned_text = self.processor.preprocess_text(normalized_text)
+        cleaned_text: str = self.processor.preprocess_text(normalized_text)
         return cleaned_text
 
     def extract_sentences(self) -> list:

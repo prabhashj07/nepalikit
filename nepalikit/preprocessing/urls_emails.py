@@ -67,8 +67,6 @@ class urls_emails:
         Returns:
             text: The document with links removed
         """
-        clean_text = re.sub(
-            r"\s*\b(?:https?|ftp):\/\/\S+\b\s*", " ", text
-        )  # Remove URLs
+        clean_text = re.sub(r"\s*\b(?:https?|ftp):\/\/\S+\b\s*", " ", text)  # Remove URLs
         clean_text = re.sub(r"\s*\S+@\S+\b\s*", " ", clean_text)  # Remove emails
         return " ".join(clean_text.split())

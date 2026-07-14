@@ -1,0 +1,26 @@
+documentation:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "*.md"
+      - "docs/**"
+
+tests:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "test/**"
+
+ci:
+  - changed-files:
+    - any-glob-to-any-file:
+      - ".github/**"
+
+core:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "nepalikit/**"
+
+dependencies:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "pyproject.toml"
+      - "uv.lock"

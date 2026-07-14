@@ -10,8 +10,8 @@ Date: July 2024
 
 from nepalikit.number_extractor.number_extractor import (
     NepaliNumberExtractor,
-    extract_numbers,
     convert_number,
+    extract_numbers,
 )
 
 __all__ = [

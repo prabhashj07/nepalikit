@@ -9,9 +9,9 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-import unicodedata
 import re
 import string
+import unicodedata
 
 
 class NepaliNormalizer:

@@ -8,7 +8,8 @@ Email: prabhashj07@gmail.com
 Date: July 2024
 """
 
-from .tokenizer import Tokenizer
 from nepalikit.tokenization.sentencepiece_tokenizer import SentencePieceTokenizer
+
+from .tokenizer import Tokenizer
 
 __all__ = ["Tokenizer", "SentencePieceTokenizer"]
