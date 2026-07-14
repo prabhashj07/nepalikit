@@ -1,94 +1,149 @@
 # Future Roadmap
 
-This document outlines features planned for future releases of NepaliKit.
+This document outlines planned features for NepaliKit releases.
 
-## Phase 2.3: Ecosystem & Infrastructure
+## Recently Completed (v1.0.4)
 
-### Dataset Loaders
-**Status:** Planned
-**Priority:** Low
-**Challenge:** No library currently provides packaged dataset loaders. Community-curated dataset lists exist but require download helpers.
+These features are available now:
 
-**Implementation Path:**
-- Create `nepalikit.datasets` module
-- Download and cache datasets from GitHub/Hugging Face
-- Support for: News, Sentiment, NER, QA datasets
+- Snowball stemmer wrapper
+- Preeti-to-Unicode converter
+- Improved sentence tokenizer (supports `?`/`!`/`॥`)
+- Expanded punctuation handling in word tokenizer
+- Script detection helpers (`is_devanagari`, `contains_devanagari`, `contains_latin`, `mixed_script_ratio`)
+- Configurable stemmer minimum residue
+- Exception words for transliteration
+- Comprehensive test suite (197 tests)
+- Full API documentation
 
-### Model Hub Integration
-**Status:** Planned
-**Priority:** Low
-**Challenge:** No library provides packaged model hub integration. Pre-trained models exist on Hugging Face but require lazy-loading wrappers.
+## v1.1: Production Readiness
 
-**Implementation Path:**
-- Create `nepalikit.model_hub` module
-- Lazy-load Hugging Face models
-- Support for: NepNewsBERT, Sentiment Analysis, Sentence Similarity
+### Lemmatizer
+**Priority:** High
+**Gap:** Current stemming is suffix-strip only. No dictionary-based lemmatization.
 
-### Benchmark Integration
-**Status:** Planned
-**Priority:** Low
-**Challenge:** No library provides packaged benchmark integration. NLUE benchmark exists but requires evaluation utilities.
+**Implementation:**
+- Create `nepalikit.lemmatizer` module
+- Dictionary-based lemma lookup + rule fallback
+- Optional: wrap `transformers` for neural lemmatizer
 
-**Implementation Path:**
-- Create `nepalikit.benchmarks` module
-- Evaluate models on NLUE tasks
-- Support for: Classification, NLI, QA, NER
+### ML-based POS Tagger
+**Priority:** High
+**Gap:** Current POS is dictionary-only. No trained model.
 
-## Phase 3: Advanced AI
+**Implementation:**
+- Create `nepalikit.pos_tagger.ml` module
+- Optional `torch`/`transformers` dependency
+- Bundle a pre-trained BiLSTM-CRF model
+- Fallback to dictionary tagger when torch unavailable
 
-### Named Entity Recognition (NER)
-**Status:** Future
-**Priority:** Medium
-**Challenge:** Requires pre-trained models. No library packages NER models; they exist as separate research artifacts.
+### Named Entity Recognition
+**Priority:** High
+**Gap:** No NER capability at all.
 
-**Current Landscape:**
-- Research models exist but are not packaged as Python libraries
-
-**Implementation Path:**
-- Add optional `torch`/`transformers` dependency
+**Implementation:**
 - Create `nepalikit.ner` module
-- Load pre-trained NER models lazily
-- Support for: PERSON, LOCATION, ORGANIZATION, DATE
+- Optional `torch`/`transformers` dependency
+- Bundle pre-trained NER model (PERSON, LOCATION, ORGANIZATION, DATE)
+- Lazy-load to keep zero-deps default
+
+## v1.2: Advanced NLP
 
 ### Word Embeddings
-**Status:** Future
-**Priority:** Low
-**Challenge:** Requires pre-trained model files (fastText/Word2Vec). No library packages these.
+**Priority:** Medium
+**Gap:** No word embedding support.
 
-**Current Landscape:**
-- Academic models exist but not packaged
-
-**Implementation Path:**
-- Add optional `fasttext`/`gensim` dependency
+**Implementation:**
 - Create `nepalikit.embeddings` module
-- Load pre-trained embeddings lazily
-- Support for: Similarity, Nearest Neighbors, Vector Operations
+- Optional `fasttext`/`gensim` dependency
+- Lazy-load pre-trained Nepali fastText/Word2Vec
+- Support similarity, nearest neighbors, vector ops
+
+### Translation
+**Priority:** Medium
+**Gap:** No translation support.
+
+**Implementation:**
+- Create `nepalikit.translation` module
+- Optional `deep-translator` or `transformers` dependency
+- Support Nepali↔English
+
+### Synonym Generator
+**Priority:** Medium
+**Gap:** No synonym support.
+
+**Implementation:**
+- Create `nepalikit.synonyms` module
+- Use pre-trained embeddings for nearest-neighbor synonyms
+- Return ranked suggestions
+
+### Spell Checker Improvements
+**Priority:** Medium
+**Gap:** Current checker is basic. Could add n-gram frequency model and context-aware corrections.
+
+**Implementation:**
+- Add n-gram frequency model
+- Add context-aware suggestions
+- Add batch spell check for documents
+
+## v2.0: Ecosystem
+
+### Dataset Loaders
+**Priority:** Low
+
+**Implementation:**
+- Create `nepalikit.datasets` module
+- Download/cache from Hugging Face Hub
+- Support: News, Sentiment, NER, QA, POS datasets
+
+### Model Hub Integration
+**Priority:** Low
+
+**Implementation:**
+- Create `nepalikit.model_hub` module
+- Lazy-load Hugging Face models
+- Support: NepNewsBERT, Sentiment, Sentence Similarity
+
+### Benchmark Suite
+**Priority:** Low
+
+**Implementation:**
+- Create `nepalikit.benchmarks` module
+- Evaluate on Nepali NLP tasks
+- Standardized evaluation metrics
 
 ## Summary
 
-| Phase | Feature | Status | Priority |
-|-------|---------|--------|----------|
-| 2.3 | Dataset Loaders | Planned | Low |
-| 2.3 | Model Hub Integration | Planned | Low |
-| 2.3 | Benchmark Integration | Planned | Low |
-| 3 | NER | Future | Medium |
-| 3 | Word Embeddings | Future | Low |
+| Version | Feature | Priority | Status |
+|---------|---------|----------|--------|
+| 1.1 | Lemmatizer | High | Planned |
+| 1.1 | ML POS Tagger | High | Planned |
+| 1.1 | Named Entity Recognition | High | Planned |
+| 1.2 | Word Embeddings | Medium | Planned |
+| 1.2 | Translation | Medium | Planned |
+| 1.2 | Synonym Generator | Medium | Planned |
+| 1.2 | Spell Checker v2 | Medium | Planned |
+| 2.0 | Dataset Loaders | Low | Future |
+| 2.0 | Model Hub | Low | Future |
+| 2.0 | Benchmark Suite | Low | Future |
 
 ## How to Contribute
 
-We welcome contributions for these features! Here's how you can help:
+We welcome contributions for these features!
 
-1. **Dataset Loaders**: Add download helpers for public datasets
-2. **Model Hub**: Create wrappers for Hugging Face models
-3. **NER**: Integrate NER models with lazy loading
-4. **Embeddings**: Add fastText/Word2Vec loaders
+1. **Lemmatizer**: Build dictionary + rule hybrid
+2. **ML POS/NER**: Train models, create lazy-loading wrappers
+3. **Embeddings**: Create fastText/Word2Vec loaders
+4. **Translation**: Wrap translation APIs/models
+5. **Datasets**: Add download helpers for public datasets
 
 **Guidelines:**
 - Use lazy imports (`try/except ImportError`)
-- Document all dependencies
-- Include examples in README
-- Write comprehensive tests
+- Keep core zero-deps
+- Document all optional dependencies
+- Include examples in docs
+- Write tests
 
 ---
 
-**Last Updated:** January 2026
+**Last Updated:** July 2026
