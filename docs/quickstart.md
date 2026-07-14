@@ -13,7 +13,7 @@ from nepalikit.tokenization import Tokenizer
 
 tokenizer = Tokenizer()
 tokens = tokenizer.tokenize("म घर जाँदै छु।", level='word')
-print(tokens)
+print(tokens)  # ['म', 'घर', 'जाँदै', 'छु']
 ```
 
 ## Text Preprocessing
@@ -83,7 +83,7 @@ from nepalikit.pos_tagger import tag_pos
 
 tokens = ["राम", "स्कूल", "जान्छ"]
 tags = tag_pos(tokens)
-print(tags)  # [("राम", "N_NNP"), ("स्कूल", "N_NN"), ("जान्छ", "V_VM")]
+print(tags)  # [("राम", "N_NN"), ("स्कूल", "N_NN"), ("जान्छ", "V_VM")]
 ```
 
 ## Spell Checking
@@ -104,12 +104,12 @@ suggest_corrections("नेपालक")  # ["नेपालको", "ने�
 from nepalikit.transliterate import roman_to_devanagari, devanagari_to_roman
 
 # Roman to Devanagari
-devanagari = roman_to_devanagari("mero naam ram ho")
-print(devanagari)  # "मेरो नाम राम हो"
+devanagari = roman_to_devanagari("namaste")
+print(devanagari)  # "नमस्ते"
 
 # Devanagari to Roman
-roman = devanagari_to_roman("मेरो नाम राम हो")
-print(roman)  # "mero naam raam ho"
+roman = devanagari_to_roman("नमस्ते।")
+print(roman)  # "namasatae"
 ```
 
 ## Preeti to Unicode
@@ -118,7 +118,7 @@ print(roman)  # "mero naam raam ho"
 from nepalikit.transliterate import preeti_to_unicode
 
 # Convert Preeti font text to Unicode Devanagari
-unicode_text = preeti_to_unicode("s{sf")
+unicode_text = preeti_to_unicode("g]kfn")
 print(unicode_text)  # "नेपाल"
 ```
 

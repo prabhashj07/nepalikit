@@ -1,47 +1,66 @@
-# NepaliKit Documentation
+# NepaliKit
 
-Welcome to NepaliKit, a comprehensive NLP library for the Nepali language.
+<div style="text-align:center">
+    <em>Comprehensive NLP for the Nepali language</em>
+    <br><br>
+    <a href="https://pypi.org/project/NepaliKit/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/NepaliKit" alt="PyPI">
+    </a>
+    <a href="https://github.com/prabhashj07/nepalikit/blob/main/LICENSE">
+        <img src="https://img.shields.io/github/license/prabhashj07/nepalikit" alt="License">
+    </a>
+</div>
 
-## What is NepaliKit?
+## Overview
 
-NepaliKit provides essential tools for processing Nepali text, including:
-
-- **Tokenization** (Rule-based & SentencePiece)
-- **Text Preprocessing** (Cleaning, normalization)
-- **Stemming** (Rule-based + Snowball wrapper)
-- **Part-of-Speech Tagging** (11 grammatical categories)
-- **Spell Checking** (Dictionary-based with suggestions)
-- **Transliteration** (Roman ↔ Devanagari + Preeti converter)
-- **Number Extraction** (Parse Nepali numbers)
-- **Normalization** (Unicode, ZWNJ stripping, script detection)
-- **Sentence Operations** (Extraction, analysis, abbreviations)
-- **Stopword Management** (340+ curated words)
-
-## Quick Links
-
-- [Installation](installation.md)
-- [Quick Start](quickstart.md)
-- [API Reference](api/)
-- [Examples](examples/)
-- [Contributing](contributing.md)
-- [Future Roadmap](future-roadmap.md)
+NepaliKit is a Python library designed for natural language processing of the Nepali language. It provides a rich set of tools for text tokenization, preprocessing, stemming, POS tagging, spell checking, transliteration, number extraction, and more.
 
 ## Features
 
-| Feature | Description |
-|---------|-------------|
-| **Tokenization** | Rule-based & SentencePiece tokenizers |
-| **Preprocessing** | HTML removal, special chars cleaning |
-| **Normalization** | Unicode, ZWNJ/ZWJ stripping, script detection |
-| **Stemming** | Rule-based + Snowball stemmer wrapper |
-| **POS Tagging** | 11 grammatical categories |
-| **Spell Checker** | Dictionary-based + edit distance |
-| **Transliteration** | Roman ↔ Devanagari + Preeti converter |
-| **Number Extraction** | Parse written-out Nepali numbers |
-| **Sentence Ops** | Extract, segment, analyze, abbreviations |
-| **Stopwords** | 340+ curated words |
+| Feature | Description | Status |
+|---------|-------------|--------|
+| Tokenization | Rule-based and SentencePiece tokenization | Stable |
+| Text preprocessing | HTML removal, special character cleaning | Stable |
+| Normalization | Unicode NFC, ZWNJ/ZWJ stripping | Stable |
+| Stemming | Rule-based suffix stripping | Stable |
+| POS Tagging | Dictionary-based with fallback, 11 categories | Stable |
+| Spell Checking | Levenshtein-based correction | Stable |
+| Transliteration | Roman ↔ Devanagari + Preeti | Stable |
+| Number Extraction | Parse Nepali numbers | Stable |
+| Stopwords | 340+ curated Nepali stopwords | Stable |
+| Sentence Ops | Segmentation, extraction, analysis | Stable |
 
-## Support
+## Quick example
 
-- **Issues**: [GitHub Issues](https://github.com/prabhashj07/nepalikit/issues)
-- **License**: MIT
+```python
+from nepalikit.tokenization import Tokenizer
+from nepalikit.normalizer import normalize
+from nepalikit.stemmer import stem_text
+
+# Process Nepali text
+tokenizer = Tokenizer()
+text = "नेपालको राजधानी काठमाडौं हो"
+
+tokens = tokenizer.tokenize(text, level='word')
+print(tokens)
+# ['नेपालको', 'राजधानी', 'काठमाडौं', 'हो']
+```
+
+## Getting Started
+
+- [Installation](installation.md)
+- [Quick Start](quickstart.md)
+- [Usage Guides](usage/index.md)
+- [Examples](examples/index.md)
+- [API Reference](api/index.md)
+
+## Project Links
+
+- [GitHub](https://github.com/prabhashj07/nepalikit)
+- [Issue Tracker](https://github.com/prabhashj07/nepalikit/issues)
+- [PyPI](https://pypi.org/project/NepaliKit/)
+- [Changelog](changelog.md)
+
+## License
+
+MIT, see the [LICENSE](https://github.com/prabhashj07/nepalikit/blob/main/LICENSE) file.

@@ -79,7 +79,7 @@ from nepalikit.sentence_operation import SentenceAnalyzer
 analyzer = SentenceAnalyzer()
 stats = analyzer.sentence_stats("नमस्ते। के छ खबर?")
 print(stats)
-# {'char_count': 15, 'word_count': 4, 'stopword_count': 1, 'punctuation_count': 1}
+# {'char_count': 17, 'word_count': 4, 'stopword_count': 2, 'punctuation_count': 2}
 ```
 
 ## Methods

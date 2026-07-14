@@ -87,7 +87,7 @@ Remove extra whitespace.
 
 ### `TextProcessor.preprocess_text(text)`
 
-Apply all preprocessing steps (HTML tags, special chars, whitespace).
+Apply all preprocessing steps (HTML tag removal, special character removal, whitespace normalization, lowercasing, stopword removal).
 
 **Parameters:**
 - `text` (str): Input text

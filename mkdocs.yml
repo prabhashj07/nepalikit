@@ -1,0 +1,90 @@
+site_name: NepaliKit
+site_description: A comprehensive NLP library for the Nepali language
+site_url: https://prabhashj07.github.io/nepalikit
+site_author: Prabhash Kumar Jha
+repo_url: https://github.com/prabhashj07/nepalikit
+repo_name: prabhashj07/nepalikit
+edit_uri: blob/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.keys
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Quick Start: quickstart.md
+  - Usage:
+      - usage/index.md
+      - Tokenization: usage/tokenization.md
+      - Preprocessing: usage/preprocessing.md
+      - Normalization: usage/normalization.md
+      - Stemming: usage/stemming.md
+      - POS Tagging: usage/pos_tagging.md
+      - Spell Checking: usage/spell_checking.md
+      - Transliteration: usage/transliteration.md
+      - Number Extraction: usage/number_extraction.md
+      - Stopwords: usage/stopwords.md
+      - Sentence Operations: usage/sentence_operations.md
+      - Training SentencePiece: usage/sentencepiece_training.md
+  - Examples:
+      - examples/index.md
+      - Basic Usage: examples/basic_usage.md
+      - Complete Pipeline: examples/complete_pipeline.md
+      - Preeti to Unicode: examples/preeti_to_unicode.md
+  - API Reference:
+      - api/index.md
+      - Tokenization: api/tokenization.md
+      - Preprocessing: api/preprocessing.md
+      - Normalization: api/normalizer.md
+      - Stemming: api/stemmer.md
+      - POS Tagging: api/pos_tagger.md
+      - Spell Checking: api/spell_checker.md
+      - Transliteration: api/transliteration.md
+      - Number Extraction: api/number_extractor.md
+      - Stopwords: api/stopwords.md
+      - Segmentation: api/segmentation.md
+      - SentencePiece Training: api/sentencepiece_training.md
+      - Utils: api/utils.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md
+  - Future roadmap: future-roadmap.md

@@ -18,9 +18,9 @@ from nepalikit.tokenization import Tokenizer
 
 tokenizer = Tokenizer()
 
-# Word tokenization
+# Word tokenization (punctuation is stripped)
 tokens = tokenizer.tokenize("म घर जाँदै छु।", level='word')
-print(tokens)
+print(tokens)  # ['म', 'घर', 'जाँदै', 'छु']
 
 # Sentence tokenization
 sentences = tokenizer.tokenize("नमस्ते। के छ खबर?", level='sentence')

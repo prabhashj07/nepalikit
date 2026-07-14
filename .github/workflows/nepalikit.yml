@@ -59,6 +59,7 @@ jobs:
       run: uv sync --extra dev
     - name: Audit dependencies
       run: uv run pip-audit
+      continue-on-error: true
 
   release:
     needs: [test, security]

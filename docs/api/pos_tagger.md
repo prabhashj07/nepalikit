@@ -16,7 +16,7 @@ from nepalikit.pos_tagger import tag_pos
 tokens = ["राम", "स्कूल", "जान्छ"]
 tags = tag_pos(tokens)
 print(tags)
-# [("राम", "N_NNP"), ("स्कूल", "N_NN"), ("जान्छ", "V_VM")]
+# [("राम", "N_NN"), ("स्कूल", "N_NN"), ("जान्छ", "V_VM")]
 ```
 
 ## Classes

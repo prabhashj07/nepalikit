@@ -23,7 +23,7 @@ pip install -e .
 ## Requirements
 
 - Python 3.9 or higher
-- Dependencies: `sentencepiece>=0.2.0,<1.0` (installed automatically)
+- Dependencies: `sentencepiece>=0.2.1,<1.0` (installed automatically)
 
 ## Verify Installation
 

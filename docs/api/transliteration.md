@@ -13,8 +13,8 @@ Convert Romanized to Devanagari. Handles exception words (common proper nouns) a
 ```python
 from nepalikit.transliterate import roman_to_devanagari
 
-roman_to_devanagari("mero naam ram ho")
-# "मेरो नाम राम हो"
+roman_to_devanagari("namaste")
+# "नमस्ते"
 
 roman_to_devanagari("kathmandu")
 # "काठमाडौं"
@@ -30,11 +30,11 @@ Convert Devanagari to Romanized.
 ```python
 from nepalikit.transliterate import devanagari_to_roman
 
-devanagari_to_roman("मेरो नाम राम हो")
-# "mero naam raam ho"
+devanagari_to_roman("नमस्ते।")
+# "namasatae"
 
 devanagari_to_roman("नेपाल")
-# "nepaal"
+# "naepaaala"
 ```
 
 ### `preeti_to_unicode(text)`
@@ -44,7 +44,7 @@ Convert Preeti font encoded text to Unicode Devanagari.
 ```python
 from nepalikit.transliterate import preeti_to_unicode
 
-preeti_to_unicode("s{sf")  # "नेपाल"
+preeti_to_unicode("g]kfn")  # "नेपाल"
 ```
 
 ## Classes
@@ -59,12 +59,12 @@ from nepalikit.transliterate import NepaliTransliterator
 trans = NepaliTransliterator()
 
 # Roman to Devanagari
-devanagari = trans.roman_to_devanagari("kathmandu")
-print(devanagari)  # "काठमाडौं"
+devanagari = trans.roman_to_devanagari("namaste")
+print(devanagari)  # "नमस्ते"
 
 # Devanagari to Roman
 roman = trans.devanagari_to_roman("नेपाल")
-print(roman)  # "nepaal"
+print(roman)  # "naepaaala"
 ```
 
 ### `PreetiConverter`
@@ -75,7 +75,7 @@ Convert Preeti font encoded text to Unicode Devanagari.
 from nepalikit.transliterate import PreetiConverter
 
 converter = PreetiConverter()
-unicode_text = converter.convert("s{sf")
+unicode_text = converter.convert("g]kfn")
 print(unicode_text)  # "नेपाल"
 ```
 

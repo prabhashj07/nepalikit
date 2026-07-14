@@ -47,14 +47,18 @@ filtered = remove_stopwords_from_text("म घर जाँदै छु")
 
 ## Documentation
 
-Full documentation is available at [docs/](docs/index.md):
+Full documentation is available at the living website:
 
-- [Installation Guide](docs/installation.md)
+- **Webpage:** [prabhashj07.github.io/nepalikit](https://prabhashj07.github.io/nepalikit)
+- **Source:** [docs/](docs/index.md)
+
+Alternatively, browse the raw documentation files:
+- [Installation](docs/installation.md)
 - [Quick Start](docs/quickstart.md)
+- [Usage](docs/usage/)
 - [API Reference](docs/api/)
 - [Examples](docs/examples/)
-- [Contributing](docs/contributing.md)
-- [Future Roadmap](docs/future-roadmap.md)
+- [Changelog](docs/changelog.md)
 
 ## License
 

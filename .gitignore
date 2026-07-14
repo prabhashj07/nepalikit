@@ -42,3 +42,4 @@ htmlcov/
 *.vocab
 !nepalikit/tokenization/sentencepiece/model/*.model
 !nepalikit/tokenization/sentencepiece/model/*.vocab
+site/
