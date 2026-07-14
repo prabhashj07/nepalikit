@@ -109,7 +109,7 @@ class MLPOSTagger:
     def _get_emission_prob(self, word, tag):
         """Get emission probability P(word|tag)."""
         # Punctuation gets high PUNC probability, low for everything else
-        if re.match(r'^[\u0964\u0965,;!?\—\-\.\:\(\)\[\]\s]+$', word):
+        if re.match(r"^[\u0964\u0965,;!?\—\-\.\:\(\)\[\]\s]+$", word):
             return 0.99 if tag == "PUNC" else 0.0001
 
         tag_emissions = self.emissions.get(tag, {})
