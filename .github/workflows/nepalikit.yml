@@ -36,6 +36,8 @@ jobs:
       run: uv run mypy nepalikit/ --ignore-missing-imports
     - name: Test with pytest and coverage
       run: uv run pytest --cov=nepalikit --cov-report=term-missing --cov-report=xml
+    - name: Build docs
+      run: uv run mkdocs build --strict
     - name: Upload coverage to Codecov
       if: matrix.python-version == '3.12' && github.event_name == 'push'
       uses: codecov/codecov-action@v7
