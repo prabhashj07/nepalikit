@@ -2,21 +2,7 @@
 
 This document outlines planned features for NepaliKit releases.
 
-## Recently Completed (Unreleased)
-
-These features are available on `main` but not yet released:
-
-- Snowball stemmer wrapper
-- Preeti-to-Unicode converter
-- Improved sentence tokenizer (supports `?`/`!`/`॥`)
-- Expanded punctuation handling in word tokenizer
-- Script detection helpers (`is_devanagari`, `contains_devanagari`, `contains_latin`, `mixed_script_ratio`)
-- Configurable stemmer minimum residue
-- Exception words for transliteration
-- Comprehensive test suite (197 tests)
-- Full API documentation
-
-## v1.1: Production Readiness
+## v1.0.5: Production Readiness
 
 ### Lemmatizer
 **Priority:** High
@@ -47,7 +33,7 @@ These features are available on `main` but not yet released:
 - Bundle pre-trained NER model (PERSON, LOCATION, ORGANIZATION, DATE)
 - Lazy-load to keep zero-deps default
 
-## v1.2: Advanced NLP
+## v1.1.0: Advanced NLP
 
 ### Word Embeddings
 **Priority:** Medium
@@ -86,7 +72,7 @@ These features are available on `main` but not yet released:
 - Add context-aware suggestions
 - Add batch spell check for documents
 
-## v2.0: Ecosystem
+## v2.0.0: Ecosystem
 
 ### Dataset Loaders
 **Priority:** Low
@@ -116,16 +102,16 @@ These features are available on `main` but not yet released:
 
 | Version | Feature | Priority | Status |
 |---------|---------|----------|--------|
-| 1.1 | Lemmatizer | High | Planned |
-| 1.1 | ML POS Tagger | High | Planned |
-| 1.1 | Named Entity Recognition | High | Planned |
-| 1.2 | Word Embeddings | Medium | Planned |
-| 1.2 | Translation | Medium | Planned |
-| 1.2 | Synonym Generator | Medium | Planned |
-| 1.2 | Spell Checker v2 | Medium | Planned |
-| 2.0 | Dataset Loaders | Low | Future |
-| 2.0 | Model Hub | Low | Future |
-| 2.0 | Benchmark Suite | Low | Future |
+| 1.0.5 | Lemmatizer | High | Planned |
+| 1.0.5 | ML POS Tagger | High | Planned |
+| 1.0.5 | Named Entity Recognition | High | Planned |
+| 1.1.0 | Word Embeddings | Medium | Planned |
+| 1.1.0 | Translation | Medium | Planned |
+| 1.1.0 | Synonym Generator | Medium | Planned |
+| 1.1.0 | Spell Checker v2 | Medium | Planned |
+| 2.0.0 | Dataset Loaders | Low | Future |
+| 2.0.0 | Model Hub | Low | Future |
+| 2.0.0 | Benchmark Suite | Low | Future |
 
 ## How to Contribute
 
@@ -146,4 +132,4 @@ We welcome contributions for these features!
 
 ---
 
-**Last Updated:** July 2026 (Unreleased)
+**Last Updated:** July 2026
