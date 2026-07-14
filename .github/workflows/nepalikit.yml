@@ -20,7 +20,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Install uv
-      uses: astral-sh/setup-uv@v4
+      uses: astral-sh/setup-uv@v7
       with:
         enable-cache: true
         cache-dependency-glob: "uv.lock"
@@ -52,7 +52,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Install uv
-      uses: astral-sh/setup-uv@v4
+      uses: astral-sh/setup-uv@v7
     - name: Set up Python
       run: uv python install 3.12
     - name: Install dependencies
@@ -73,7 +73,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Install uv
-      uses: astral-sh/setup-uv@v4
+      uses: astral-sh/setup-uv@v7
     - name: Set up Python
       run: uv python install 3.12
     - name: Build package
