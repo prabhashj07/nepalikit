@@ -1,9 +1,9 @@
 """Tests for extract_sentences, segment_sentences, and SentenceAnalyzer."""
 
 from nepalikit.sentence_operation import (
+    SentenceAnalyzer,
     extract_sentences,
     segment_sentences,
-    SentenceAnalyzer,
 )
 
 

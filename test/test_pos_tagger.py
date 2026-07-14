@@ -1,4 +1,5 @@
 import pytest
+
 from nepalikit.pos_tagger import NepaliPOSTagger, tag_pos
 
 

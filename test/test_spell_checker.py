@@ -1,4 +1,5 @@
 import pytest
+
 from nepalikit.spell_checker import (
     NepaliSpellChecker,
     check_spelling,

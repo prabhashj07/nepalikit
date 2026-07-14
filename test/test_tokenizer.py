@@ -1,6 +1,7 @@
 """Tests for the Tokenizer class."""
 
 import pytest
+
 from nepalikit.tokenization import Tokenizer
 
 

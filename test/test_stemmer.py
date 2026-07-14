@@ -1,4 +1,5 @@
 import pytest
+
 from nepalikit.stemmer import NepaliStemmer, stem, stem_text
 
 

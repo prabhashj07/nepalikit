@@ -1,5 +1,6 @@
 import pytest
-from nepalikit.normalizer import NepaliNormalizer, normalize, detect_script
+
+from nepalikit.normalizer import NepaliNormalizer, detect_script, normalize
 
 
 @pytest.fixture

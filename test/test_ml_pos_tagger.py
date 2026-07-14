@@ -6,7 +6,6 @@ Author: Prabhash Kumar Jha
 Date: July 2026
 """
 
-import pytest
 from nepalikit.pos_tagger.ml_pos_tagger import MLPOSTagger, ml_tag_pos, ml_tag_text
 
 

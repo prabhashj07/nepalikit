@@ -10,7 +10,6 @@ Date: July 2026
 
 import json
 import logging
-import re
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -50,8 +49,6 @@ class NepaliLemmatizer:
     def _load_bundled(self):
         """Load the bundled lemma dictionary."""
         try:
-            import importlib.resources as pkg_resources
-
             data_dir = Path(__file__).parent.parent / "data"
             dict_path = data_dir / "lemma_dictionary.json"
             suffix_path = data_dir / "stemmer_rules.json"

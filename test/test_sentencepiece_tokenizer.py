@@ -1,9 +1,10 @@
 # test/test_sentencepiece_tokenizer.py
 
 import pytest
-from nepalikit.tokenization import SentencePieceTokenizer, Tokenizer
-from nepalikit.sentence_operation import TextNormalizer
 import sentencepiece as spm
+
+from nepalikit.sentence_operation import TextNormalizer
+from nepalikit.tokenization import SentencePieceTokenizer, Tokenizer
 
 
 @pytest.fixture

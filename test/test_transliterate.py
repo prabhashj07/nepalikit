@@ -1,8 +1,9 @@
 import pytest
+
 from nepalikit.transliterate import (
     NepaliTransliterator,
-    roman_to_devanagari,
     devanagari_to_roman,
+    roman_to_devanagari,
 )
 
 

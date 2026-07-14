@@ -1,4 +1,5 @@
 import pytest
+
 from nepalikit.utils import NepaliTextProcessor
 
 
