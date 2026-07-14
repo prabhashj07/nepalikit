@@ -2,9 +2,9 @@
 
 This document outlines planned features for NepaliKit releases.
 
-## v1.0.5: Production Readiness
+## v1.0.5: Lemmatizer
 
-### Lemmatizer
+### Dictionary-based Lemmatizer
 **Priority:** High
 **Gap:** Current stemming is suffix-strip only. No dictionary-based lemmatization.
 
@@ -12,6 +12,8 @@ This document outlines planned features for NepaliKit releases.
 - Create `nepalikit.lemmatizer` module
 - Dictionary-based lemma lookup + rule fallback
 - Optional: wrap `transformers` for neural lemmatizer
+
+## v1.0.6: ML POS Tagger
 
 ### ML-based POS Tagger
 **Priority:** High
@@ -23,7 +25,9 @@ This document outlines planned features for NepaliKit releases.
 - Bundle a pre-trained BiLSTM-CRF model
 - Fallback to dictionary tagger when torch unavailable
 
-### Named Entity Recognition
+## v1.0.7: Named Entity Recognition
+
+### NER Module
 **Priority:** High
 **Gap:** No NER capability at all.
 
@@ -33,7 +37,7 @@ This document outlines planned features for NepaliKit releases.
 - Bundle pre-trained NER model (PERSON, LOCATION, ORGANIZATION, DATE)
 - Lazy-load to keep zero-deps default
 
-## v1.1.0: Advanced NLP
+## v1.0.8: Word Embeddings
 
 ### Word Embeddings
 **Priority:** Medium
@@ -45,6 +49,8 @@ This document outlines planned features for NepaliKit releases.
 - Lazy-load pre-trained Nepali fastText/Word2Vec
 - Support similarity, nearest neighbors, vector ops
 
+## v1.0.9: Translation
+
 ### Translation
 **Priority:** Medium
 **Gap:** No translation support.
@@ -52,7 +58,9 @@ This document outlines planned features for NepaliKit releases.
 **Implementation:**
 - Create `nepalikit.translation` module
 - Optional `deep-translator` or `transformers` dependency
-- Support Nepali↔English
+- Support Nepali to English and English to Nepali
+
+## v1.0.10: Synonym Generator
 
 ### Synonym Generator
 **Priority:** Medium
@@ -63,6 +71,8 @@ This document outlines planned features for NepaliKit releases.
 - Use pre-trained embeddings for nearest-neighbor synonyms
 - Return ranked suggestions
 
+## v1.0.11: Spell Checker v2
+
 ### Spell Checker Improvements
 **Priority:** Medium
 **Gap:** Current checker is basic. Could add n-gram frequency model and context-aware corrections.
@@ -72,7 +82,7 @@ This document outlines planned features for NepaliKit releases.
 - Add context-aware suggestions
 - Add batch spell check for documents
 
-## v2.0.0: Ecosystem
+## v1.1.0: Ecosystem
 
 ### Dataset Loaders
 **Priority:** Low
@@ -103,15 +113,15 @@ This document outlines planned features for NepaliKit releases.
 | Version | Feature | Priority | Status |
 |---------|---------|----------|--------|
 | 1.0.5 | Lemmatizer | High | Planned |
-| 1.0.5 | ML POS Tagger | High | Planned |
-| 1.0.5 | Named Entity Recognition | High | Planned |
-| 1.1.0 | Word Embeddings | Medium | Planned |
-| 1.1.0 | Translation | Medium | Planned |
-| 1.1.0 | Synonym Generator | Medium | Planned |
-| 1.1.0 | Spell Checker v2 | Medium | Planned |
-| 2.0.0 | Dataset Loaders | Low | Future |
-| 2.0.0 | Model Hub | Low | Future |
-| 2.0.0 | Benchmark Suite | Low | Future |
+| 1.0.6 | ML POS Tagger | High | Planned |
+| 1.0.7 | Named Entity Recognition | High | Planned |
+| 1.0.8 | Word Embeddings | Medium | Planned |
+| 1.0.9 | Translation | Medium | Planned |
+| 1.0.10 | Synonym Generator | Medium | Planned |
+| 1.0.11 | Spell Checker v2 | Medium | Planned |
+| 1.1.0 | Dataset Loaders | Low | Future |
+| 1.1.0 | Model Hub | Low | Future |
+| 1.1.0 | Benchmark Suite | Low | Future |
 
 ## How to Contribute
 
