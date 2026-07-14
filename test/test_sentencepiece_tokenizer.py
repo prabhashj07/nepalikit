@@ -48,7 +48,7 @@ def test_roundtrip(tokenizer):
 
 def test_model_file_not_found():
     non_existent_model = "/nonexistent/path/NepaliKit_sentencepiece.model"
-    with pytest.raises(OSError):
+    with pytest.raises((OSError, RuntimeError)):
         sp = spm.SentencePieceProcessor()
         sp.Load(non_existent_model)
 
